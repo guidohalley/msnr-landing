@@ -201,14 +201,14 @@ export default function Hero() {
                                 animationData={msnrLottie}
                                 style={{ width: "100%", height: "100%" }}
                                 rendererSettings={{ preserveAspectRatio: "xMidYMid slice" }}
-                                speed={0.1}
+                                speed={0.1} 
                             />
                         </motion.div>
                     </div>
                 </div>
                 {/* Glow border bottom */}
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-1 bg-neon/60 blur-lg rounded-full opacity-70" />
-            </section>
+            </section>  
             {/* Sección de clientes (slider) */}
             <ClientsSlider />
         </>
