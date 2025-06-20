@@ -3,6 +3,8 @@
 import { LucideTarget, Megaphone, MonitorSmartphone, Video } from "lucide-react";
 import { AcademicCapIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
 
 const services = {
   estrategia: {
@@ -31,10 +33,31 @@ type ServiceKey = keyof typeof services;
 
 export default function ServiceCard({ service }: { service: ServiceKey }) {
   const S = services[service];
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      gsap.fromTo(
+        cardRef.current,
+        { opacity: 0, y: 40, scale: 0.96, filter: "blur(6px)" },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 1.1,
+          ease: "power3.out",
+          delay: 0.15 + Math.random() * 0.2,
+        }
+      );
+    }
+  }, []);
+
   return (
     <motion.article
-      whileHover={{ y: -6, boxShadow: "0 8px 32px 0 rgba(37,99,235,0.10)" }}
-      className="bg-white dark:bg-zinc-900 rounded-xl p-6 flex flex-col items-center gap-4 shadow-md border border-zinc-100 dark:border-zinc-800 transition-colors min-h-[220px]"
+      ref={cardRef}
+      whileHover={{ y: -6, boxShadow: "0 8px 32px 0 rgba(37,99,235,0.10)", scale: 1.04, filter: "brightness(1.08) blur(0px)" }}
+      className="bg-white dark:bg-zinc-900 rounded-xl p-6 flex flex-col items-center gap-4 shadow-md border border-zinc-100 dark:border-zinc-800 transition-colors min-h-[220px] will-change-transform"
       tabIndex={0}
       aria-label={S.title}
     >

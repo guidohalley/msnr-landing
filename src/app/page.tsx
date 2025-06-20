@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import Hero2 from "@/components/Hero2";
 import ServiceCard from "@/components/ServiceCard";
 import Steps from "@/components/Steps";
 import PortfolioGrid from "@/components/PortfolioGrid";
@@ -10,8 +11,9 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen bg-background text-foreground transition-colors">
+      <Hero2 />
       {/* Hero */}
-      <Hero />
+      {/* <Hero /> */}
       {/* Servicios */}
       <section id="servicios" className="py-16 px-4 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">Servicios</h2>
