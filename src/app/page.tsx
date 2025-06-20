@@ -1,10 +1,10 @@
 import Hero2 from "@/components/Hero2";
 import ServiceCard from "@/components/ServiceCard";
 import Steps from "@/components/Steps";
-import PortfolioGrid from "@/components/PortfolioGrid";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
-import ContactForm from "@/components/ContactForm";
+import MarketingEnserio from "@/components/MarketingEnserio";
+import StatusTable from "@/components/StatusTable";
 import Footer from "@/components/Footer";
+import ServiceSlider from "@/components/ServiceSlider";
 
 export default function Home() {
   return (
@@ -15,30 +15,37 @@ export default function Home() {
       {/* Servicios */}
       <section id="servicios" className="py-16 px-4 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">Servicios</h2>
+        <ServiceSlider />
+        {/*
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <ServiceCard service="estrategia" />
-          <ServiceCard service="publicidad" />
-          <ServiceCard service="web" />
-          <ServiceCard service="audiovisual" />
+          <ServiceCard service="produccionAudiovisual" />
+          <ServiceCard service="disenoGrafico" />
+          <ServiceCard service="patentamiento" />
+          <ServiceCard service="sistemasWeb" />
+          <ServiceCard service="paginasWeb" />
         </div>
+        */}
       </section>
+      <MarketingEnserio />
       {/* Cómo trabajamos */}
       <section id="como-trabajamos" className="py-16 px-4 max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">Cómo trabajamos</h2>
         <Steps />
       </section>
       {/* Portfolio / Casos de éxito */}
-      <section id="portfolio" className="py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">Casos de éxito</h2>
-        <PortfolioGrid />
-      </section>
+      {/* <section id="portfolio" className="py-16 px-4 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-center">Casos de éxito</h2> */}
+        {/* <PortfolioGrid /> */}
+      {/* </section> */}
+      <StatusTable />
       {/* Testimonios */}
-      <section id="testimonios" className="py-16 px-4 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">Testimonios</h2>
-        <TestimonialCarousel />
-      </section>
+      {/* <section id="testimonios" className="py-16 px-4 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-center">Testimonios</h2> */}
+        {/* <TestimonialCarousel /> */}
+      {/* </section> */}
       {/* Llamada a la acción */}
-      <section id="cta" className="py-16 px-4">
+      {/* <section id="cta" className="py-16 px-4">
         <div className="max-w-2xl mx-auto rounded-xl bg-gradient-to-r from-primary to-accent text-white p-10 flex flex-col items-center gap-4 shadow-lg">
           <h2 className="text-2xl font-bold">¿Listo para impulsar tu marca?</h2>
           <a
@@ -48,12 +55,12 @@ export default function Home() {
             Contáctanos
           </a>
         </div>
-      </section>
+      </section> */}
       {/* Formulario de contacto */}
-      <section id="contacto" className="py-16 px-4 max-w-2xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">Contacto</h2>
-        <ContactForm />
-      </section>
+      {/* <section id="contacto" className="py-16 px-4 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-center">Contacto</h2> */}
+        {/* <ContactForm /> */}
+      {/* </section> */}
       {/* Footer */}
       <Footer />
     </main>

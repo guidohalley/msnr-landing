@@ -1,31 +1,41 @@
 "use client";
 
-import { Megaphone, MonitorSmartphone, Video } from "lucide-react";
-import { AcademicCapIcon } from "@heroicons/react/24/outline";
+import { Megaphone, MonitorSmartphone, Video, Palette, Database, Monitor } from "lucide-react";
+import { AcademicCapIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 
-const services = {
+export const services = {
   estrategia: {
     icon: AcademicCapIcon,
-    title: "Estrategia Digital",
-    desc: "Planificamos tu crecimiento online con foco en resultados medibles.",
+    title: "Estrategia de Marketing Digital",
+    desc: "Desarrollamos estrategias personalizadas para tu presencia online y objetivos de negocio.",
   },
-  publicidad: {
-    icon: Megaphone,
-    title: "Publicidad en redes",
-    desc: "Campañas creativas y segmentadas en Meta, Google y más.",
-  },
-  web: {
-    icon: MonitorSmartphone,
-    title: "Diseño Web",
-    desc: "Sitios modernos, rápidos y optimizados para SEO y conversión.",
-  },
-  audiovisual: {
+  produccionAudiovisual: {
     icon: Video,
     title: "Producción Audiovisual",
-    desc: "Videos, reels y fotografía profesional para tu marca.",
+    desc: "Videos, reels y fotografía profesional para comunicar tu marca.",
+  },
+  disenoGrafico: {
+    icon: Palette,
+    title: "Diseño Gráfico",
+    desc: "Creación de identidad visual y piezas gráficas con estilo y coherencia.",
+  },
+  patentamiento: {
+    icon: ShieldCheckIcon,
+    title: "Patentamiento de Marca",
+    desc: "Protege tu marca con registros y asesoría legal especializada.",
+  },
+  sistemasWeb: {
+    icon: Database,
+    title: "Sistemas Web",
+    desc: "Desarrollo de arquitecturas backend robustas y escalables.",
+  },
+  paginasWeb: {
+    icon: Monitor,
+    title: "Páginas Web",
+    desc: "Sitios web responsivos, rápidos y optimizados para SEO.",
   },
 };
 
@@ -33,6 +43,10 @@ type ServiceKey = keyof typeof services;
 
 export default function ServiceCard({ service }: { service: ServiceKey }) {
   const S = services[service];
+  if (!S) {
+    console.warn(`Servicio desconocido: ${service}`);
+    return null;
+  }
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
