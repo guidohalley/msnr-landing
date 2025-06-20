@@ -33,7 +33,7 @@ const projects = [
 export default function PortfolioGrid() {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-			{projects.map((p, i) => (
+			{projects.map(p => (
 				<motion.a
 					key={p.title}
 					href={p.link}

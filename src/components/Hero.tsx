@@ -201,7 +201,7 @@ export default function Hero() {
                                 animationData={msnrLottie}
                                 style={{ width: "100%", height: "100%" }}
                                 rendererSettings={{ preserveAspectRatio: "xMidYMid slice" }}
-                                {...({ speed: 0.1 } as any)} // @ts-expect-error: Lottie Player speed prop acepta any por compatibilidad
+                                speed={0.1}
                             />
                         </motion.div>
                     </div>
