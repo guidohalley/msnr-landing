@@ -201,7 +201,6 @@ export default function Hero() {
                                 animationData={msnrLottie}
                                 style={{ width: "100%", height: "100%" }}
                                 rendererSettings={{ preserveAspectRatio: "xMidYMid slice" }}
-                                speed={0.1} 
                             />
                         </motion.div>
                     </div>
