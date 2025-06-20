@@ -1,6 +1,6 @@
 "use client";
 
-import { LucideTarget, Megaphone, MonitorSmartphone, Video } from "lucide-react";
+import { Megaphone, MonitorSmartphone, Video } from "lucide-react";
 import { AcademicCapIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";

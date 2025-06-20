@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Menu } from "@headlessui/react";
-import { Menu as MenuIcon } from "lucide-react";
 import Player from "lottie-react";
 import msnrLottie from "@/../public/msnr-lottie.json";
 import HeroVerticalSlider from "./HeroVerticalSlider";
@@ -203,7 +201,7 @@ export default function Hero() {
                                 animationData={msnrLottie}
                                 style={{ width: "100%", height: "100%" }}
                                 rendererSettings={{ preserveAspectRatio: "xMidYMid slice" }}
-                                {...({ speed: 0.1 } as any)}
+                                {...({ speed: 0.1 } as any)} // @ts-expect-error: Lottie Player speed prop acepta any por compatibilidad
                             />
                         </motion.div>
                     </div>

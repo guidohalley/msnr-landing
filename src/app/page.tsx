@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Hero from "@/components/Hero";
 import Hero2 from "@/components/Hero2";
 import ServiceCard from "@/components/ServiceCard";
 import Steps from "@/components/Steps";
