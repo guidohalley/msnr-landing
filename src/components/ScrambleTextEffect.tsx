@@ -2,9 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-// @ts-ignore
 import SplitText from "gsap/SplitText";
-// @ts-ignore
 import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(SplitText, ScrambleTextPlugin);
@@ -42,7 +40,7 @@ export default function ScrambleTextEffect({ text }: ScrambleTextEffectProps) {
             overwrite: true,
             duration: 1.2 - dist / 100,
             scrambleText: {
-              text: char.dataset.content,
+              text: char.dataset.content ?? "",
               chars: ".:",
               speed: 0.5,
             },
@@ -51,20 +49,15 @@ export default function ScrambleTextEffect({ text }: ScrambleTextEffectProps) {
         }
       });
     };
-    const el = pRef.current;
-    el.onpointermove = handlePointerMove;
+
+    pRef.current.addEventListener("pointermove", handlePointerMove);
     return () => {
-      el.onpointermove = null;
-      split.revert();
+      pRef.current?.removeEventListener("pointermove", handlePointerMove);
     };
   }, [text]);
 
   return (
-    <p
-      ref={pRef}
-      className="font-mundial text-white text-xl md:text-2xl select-none cursor-pointer"
-      style={{ fontFamily: 'monospace', fontSize: 'clamp(1.1rem,2vw,2rem)' }}
-    >
+    <p ref={pRef} className="scramble-text-effect text-lg text-center font-medium leading-relaxed select-none cursor-pointer">
       {text}
     </p>
   );

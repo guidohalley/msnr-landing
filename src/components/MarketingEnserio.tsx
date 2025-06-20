@@ -3,9 +3,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
-import { SiAdobeaftereffects, SiAdobepremierepro, SiDavinciresolve, SiAdobeillustrator, SiAdobephotoshop, SiFigma, SiCanva, SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiAmazonwebservices , SiVercel, SiFacebook, SiGoogleads, SiGoogleanalytics, SiMailchimp, SiZapier, SiNotion, SiSlack, SiTrello, SiWordpress,SiN8N  } from "react-icons/si";
 import TechStackIcons from "@/components/TechStackIcons";
 
+// animejs: tipado any para compatibilidad con import dinámico
 let anime: any;
 
 const frases = [
@@ -17,17 +17,30 @@ export default function MarketingEnserio() {
   const glowRef = useRef<HTMLDivElement>(null);
 
   // Framer Motion: marquee horizontal infinito
-  const marqueeText = frases.join("  •  ");
+  const marqueeText = frases.join("  \u2022  ");
   // Framer Motion: sincronizar x con scroll
   const { scrollYProgress } = useScroll();
   // El rango de movimiento horizontal: 0 a -50% (loop visual)
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const mod = require("animejs");
-      anime = mod.default ? mod.default : mod;
-    }
+    let isMounted = true;
+    import("animejs").then((mod) => {
+      if (isMounted) {
+        anime = mod;
+        // Anime.js: animación de trazo de texto
+        if (textRef.current && typeof anime === "function") {
+          anime({
+            targets: textRef.current.querySelectorAll(".char"),
+            translateY: [40, 0],
+            opacity: [0, 1],
+            delay: anime.stagger(40),
+            duration: 900,
+            easing: "easeOutExpo",
+          });
+        }
+      }
+    });
     // GSAP: entrada fade+up
     if (textRef.current) {
       gsap.fromTo(
@@ -35,17 +48,6 @@ export default function MarketingEnserio() {
         { opacity: 0, y: 40, scale: 0.96 },
         { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out" }
       );
-    }
-    // Anime.js: animación de trazo de texto
-    if (textRef.current && typeof anime === "function") {
-      anime({
-        targets: textRef.current.querySelectorAll(".char"),
-        translateY: [40, 0],
-        opacity: [0, 1],
-        delay: anime.stagger(40),
-        duration: 900,
-        easing: "easeOutExpo",
-      });
     }
     // GSAP: glow animado
     if (glowRef.current) {
@@ -57,6 +59,9 @@ export default function MarketingEnserio() {
         ease: "power1.inOut",
       });
     }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Framer Motion: microinteracción hover
@@ -98,8 +103,8 @@ export default function MarketingEnserio() {
           </motion.div>
         </div>
       </motion.div>
-
-      <div className="w-full max-w-7xl overflow-hidden flex flex-col items-center gap-6 mt-8">
+      {/* Stack de tecnologías */}
+      <div className="mt-10 w-full max-w-5xl mx-auto">
         <TechStackIcons />
       </div>
     </section>
