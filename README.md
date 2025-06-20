@@ -1,3 +1,29 @@
+# msnr-landing
+
+Landing page profesional para agencia de marketing digital, construida con Next.js, TypeScript y Tailwind CSS.
+
+## Stack
+- Next.js App Router
+- TypeScript
+- Tailwind CSS (dark mode)
+- Framer Motion, Headless UI, React Hook Form, Zod, Heroicons, Lucide, Splide.js
+
+## Scripts
+- `npm run dev` — desarrollo
+- `npm run build` — build producción
+- `npm run lint` — linting
+
+## Estructura
+- Componentes en `src/components/`
+- API mock en `src/app/api/contact/route.ts`
+
+## Accesibilidad y SEO
+- Semántica HTML, meta tags, contraste, alt en imágenes.
+
+---
+
+Reemplaza imágenes y textos de ejemplo por los definitivos antes de publicar.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
