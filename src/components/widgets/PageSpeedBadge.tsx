@@ -27,8 +27,12 @@ export function PageSpeedBadge({ url }: PageSpeedBadgeProps) {
     const fetchScore = async () => {
       try {
         setLoading(true);
+        const apiKey = process.env.NEXT_PUBLIC_PAGESPEED_API_KEY;
+        if (!apiKey) {
+          throw new Error('API key Google no definida');
+        }
         const res = await fetch(
-          `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=AIzaSyDpx7UwJsuC0N7xUpS9lH-JTwTP35LhQoY`
+          `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${apiKey}`
         );
         
         if (!res.ok) {
