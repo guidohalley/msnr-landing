@@ -16,7 +16,6 @@ export default function Home() {
         <h2 className="text-3xl font-bold mb-8 text-center">Servicios</h2>
         <ServiceSlider />
       </section>
-      <MarketingEnserio />
       {/* Cómo trabajamos */}
       <section id="como-trabajamos" className="py-16 px-4 max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">Cómo trabajamos</h2>
