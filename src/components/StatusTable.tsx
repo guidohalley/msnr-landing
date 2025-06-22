@@ -107,7 +107,7 @@ export default function StatusTable() {
               Creamos sitios web modernos, rápidos y optimizados para tu negocio. 
               <span className="font-semibold text-primary">Mostramos resultados reales</span> y acompañamos a nuestros clientes en cada etapa digital.
               <br /><br />
-              <span className="italic text-zinc-500">"Tu web es tu carta de presentación. Hagamos que impacte."</span>
+              <span className="italic text-zinc-500">&quot;Tu web es tu carta de presentación. Hagamos que impacte.&quot;</span>
             </p>
             <p className="text-zinc-700 dark:text-zinc-200 text-lg leading-relaxed">
               Si tu web no aparece aquí, consultanos por WhatsApp y te la sumamos en minutos.

@@ -4,8 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { services } from "@/components/ServiceCard";
-import ScrambleTextEffect from "@/components/ScrambleTextEffect";
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
 
 const serviceKeys = [
@@ -119,7 +118,9 @@ export default function ServiceSlider() {
                     >
                       {S.title}
                     </h3>
-                    <ScrambleTextEffect text={S.desc} />
+                    <p className="text-lg text-center text-gray-600 dark:text-gray-300">
+                      {S.desc}
+                    </p>
                   </motion.div>
                 </div>
                 {/* Asset visual a la derecha */}
