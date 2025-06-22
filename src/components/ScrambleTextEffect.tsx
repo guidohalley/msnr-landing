@@ -38,11 +38,11 @@ export default function ScrambleTextEffect({ text }: ScrambleTextEffectProps) {
         if (dist < 100) {
           gsap.to(char, {
             overwrite: true,
-            duration: 1.2 - dist / 100,
+            duration: 1 - dist / 100,
             scrambleText: {
               text: char.dataset.content ?? "",
               chars: ".:",
-              speed: 0.5,
+              speed: 0.2,
             },
             ease: "none",
           });

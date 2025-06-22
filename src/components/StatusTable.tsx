@@ -2,7 +2,7 @@
 
 import useSWR from "swr";
 import { PageSpeedBadge } from "@/components/widgets/PageSpeedBadge";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
@@ -108,6 +108,9 @@ export default function StatusTable() {
               <span className="font-semibold text-primary">Mostramos resultados reales</span> y acompañamos a nuestros clientes en cada etapa digital.
               <br /><br />
               <span className="italic text-zinc-500">"Tu web es tu carta de presentación. Hagamos que impacte."</span>
+            </p>
+            <p className="text-zinc-700 dark:text-zinc-200 text-lg leading-relaxed">
+              Si tu web no aparece aquí, consultanos por WhatsApp y te la sumamos en minutos.
             </p>
           </div>
           <Link

@@ -32,7 +32,7 @@ export default function Header() {
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 18 }}
+            transition={{ type: "spring", stiffness: 80, damping: 22, mass: 1.2 }}
             className="flex items-center"
           >
             <Image
@@ -44,12 +44,12 @@ export default function Header() {
               priority
             />
           </motion.div>
-          <span className="font-mundial font-extrabold text-xl text-primary group-hover:text-primary-dark transition-colors">MSNR</span>
+          <span className="font-mundial font-extrabold text-xl text-primary group-hover:text-primary-dark transition-colors">MSNR®</span>
         </Link>
         <ul className="flex gap-6 items-center text-sm font-medium font-mundial">
           <li><a href="#servicios" className="font-mundial hover:text-primary transition-colors">Servicios</a></li>
-          <li><a href="#portfolio" className="font-mundial hover:text-primary transition-colors">Portfolio</a></li>
-          <li><a href="#testimonios" className="font-mundial hover:text-primary transition-colors">Testimonios</a></li>
+          {/* <li><a href="#portfolio" className="font-mundial hover:text-primary transition-colors">Portfolio</a></li>
+          <li><a href="#testimonios" className="font-mundial hover:text-primary transition-colors">Testimonios</a></li> */}
           <li>
             <motion.a
               ref={whatsappBtnRef}

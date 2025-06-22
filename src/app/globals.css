@@ -31,3 +31,35 @@ body {
   user-select: none;
   cursor: pointer;
 }
+
+/* src/app/globals.css */
+.card-glow-animated {
+  position: relative;
+  z-index: 1;
+}
+.card-glow-animated > * {
+  position: relative;
+  z-index: 2;
+}
+.card-glow-animated::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: 1.5rem;
+  pointer-events: none;
+  /* background: conic-gradient(from 0deg, #ffe066 0%, #ff6ec7 40%, #00fff7 80%, #ffe066 100%); */
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(.4,2,.6,1), filter 0.3s;
+  filter: blur(3px) brightness(1.05) saturate(1.05);
+  mix-blend-mode: screen;
+}
+.card-glow-animated:hover::after,
+.card-glow-animated:focus-within::after {
+  opacity: 1;
+  animation: border-glow-spin 2.5s linear infinite;
+}
+@keyframes border-glow-spin {
+  0% { filter: blur(3px) brightness(1.05) saturate(1.05); }
+  100% { filter: blur(3px) brightness(1.05) saturate(1.05); background-position: 360deg; }
+}
