@@ -1,7 +1,6 @@
 import React from "react";
 import Hero2, { Hero2Skeleton } from "@/components/Hero2";
 import Steps from "@/components/Steps";
-import MarketingEnserio from "@/components/MarketingEnserio";
 import StatusTable from "@/components/StatusTable";
 import Footer from "@/components/Footer";
 import ServiceSlider from "@/components/ServiceSlider";
