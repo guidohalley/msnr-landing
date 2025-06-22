@@ -87,7 +87,7 @@ export default function ServiceSlider() {
         {serviceKeys.map((key) => {
           const S = services[key];
           return (
-            <SplideSlide key={key}>
+            <SplideSlide key={key} aria-label={S.title}>
               <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center h-full z-10">
                 {/* Servicio a la izquierda, ahora como card similar a StatusTable */}
                 <div className="flex flex-col items-center justify-center w-full h-full">
