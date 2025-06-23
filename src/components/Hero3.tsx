@@ -223,7 +223,7 @@ export default function Hero3() {
       
       {/* Logo prominente superior */}
       <motion.div
-        className="absolute top-6 left-1/2 -translate-x-1/2 z-30 w-32 md:w-40 h-16 md:h-20"
+        className="absolute top-20 left-1/2 -translate-x-1/2 z-30 w-80 md:w-[28rem] h-28 md:h-36 bor"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
