@@ -1,0 +1,83 @@
+**¿Qué es Misionary?**
+Misionary es una agencia de marketing digital con sede en Posadas (Misiones, Argentina). Su propósito es “romper esquemas” mediante estrategias disruptivas que potencien la identidad de cada marca; por eso adopta el arquetipo del *forajido*, con el lema «Nuestra misión es cumplir con tu misión». Su público ideal son empresas y emprendedores que valoran la originalidad y buscan diferenciarse de la competencia.&#x20;
+
+**Identidad visual – colores principales**
+
+* **Verde Neón #E9FC87** – energía, innovación y alta visibilidad.
+* **Gris Oscuro #262626** – elegancia y neutralidad; permite que el verde destaque.
+* **Blanco #F2F2F2** – equilibrio y limpieza para diseños minimalistas.
+* **Violeta Claro #BCB4FF** – acento creativo que añade sofisticación.
+  Las combinaciones correctas son Verde-Gris, Blanco-Gris o monocromáticas; se evita mezclar Verde, Violeta y Blanco entre sí porque reducen el contraste.&#x20;
+
+**Tipografía corporativa**
+La familia **Mundial** se usa en todas sus variables (Thin, Light, Regular, Bold, Black). Es geométrica, contemporánea y muy legible, lo que refuerza el tono moderno y tecnológico de la marca en aplicaciones impresas y digitales.&#x20;
+
+**Servicios y actividades principales**
+Misionary ofrece un servicio integral “todo tu marketing bajo un mismo techo”:
+
+* Estrategia y **Gestión de Redes Sociales** (planificación, redacción, interacción y métricas).
+* **Diseño Gráfico** (piezas para RR.SS., adaptación multiformato, optimización de logotipos y manuales de marca).
+* **Producción Audiovisual** (fotografía, video, animaciones).
+* **Campañas Publicitarias** en Meta Ads y Google, con seguimiento de resultados.
+* **Desarrollo de sitios y sistemas web**, consultorías, automatización de procesos, SEO y analítica (GA, GSC).
+
+**Metodología de trabajo**
+Funciona por suscripción mensual: se define un plan a medida, se asigna un equipo exclusivo y se gestionan las tareas en Notion con acceso 24/7 para el cliente. La comunicación es de lunes a viernes, 9-18 h (AR), y las entregas se revisan hasta la aprobación final. El equipo abarca Social/Paid Media, Diseño, Desarrollo, Producción Audiovisual y Community Management, garantizando revisiones ilimitadas y foco en resultados.&#x20;
+
+**GUÍA DE ESTILO Y DISEÑO - PROMPT PARA DESARROLLADORES**
+
+**Visión general y enfoque**
+MSNR (Misionary) es una agencia de marketing digital disruptiva que sigue el arquetipo del "forajido" - rompemos esquemas con estrategias innovadoras. Nuestro lema: «Nuestra misión es cumplir con tu misión». Nuestra web debe transmitir audacia, innovación y profesionalismo de alto nivel.
+
+**Paleta de colores**
+- Verde Neón (#E9FC87) - Color principal para acentos, CTA y elementos destacados
+- Gris Oscuro (#262626) - Fondo principal y textos en modo light
+- Blanco (#F2F2F2) - Espacios negativos, textos en modo dark
+- Violeta Claro (#BCB4FF) - Acentos secundarios y detalles decorativos
+
+**Reglas de combinación:**
+- Verde sobre Gris (alto contraste)
+- Blanco sobre Gris (para textos principales)
+- Evitar mezclar Verde, Violeta y Blanco entre sí (reduce contraste)
+
+**Tipografía**
+- Familia Mundial en todas sus variantes (Thin a Black)
+- Jerarquía clara: Títulos (Mundial Bold/Black), Subtítulos (Mundial Demibold), Cuerpo (Mundial Regular/Light)
+- Tamaños mobile-first: h1 (2.5rem a 4rem), h2 (1.75rem a 2.5rem), p (1rem a 1.125rem)
+
+**UI/UX**
+- Enfoque mobile-first siempre
+- Dark mode como prioridad, con diseño equivalente en light mode
+- Interfaces minimalistas con amplios espacios negativos
+- Uso de contenedores con bordes redondeados (border-radius: 1rem)
+- Efectos hover sutiles pero distintivos (escala, brillo, color)
+
+**Animaciones y microinteracciones**
+- Transiciones suaves (300-500ms)
+- Animaciones de entrada y salida para secciones (Framer Motion)
+- Efectos parallax para profundidad visual
+- Microinteracciones en botones, cards y elementos de navegación
+- Efecto tilt 3D sutil en cards y elementos destacados
+- Animación de texto (scramble text) para elementos clave
+
+**Estructura de componentes**
+- Hero: Logo prominente, animación destacada, tagline "Nuestra misión es cumplir con tu misión"
+- Header: Transparente sobre hero, sólido al hacer scroll
+- Cards: Bordes finos o sombras sutiles, hover con transformación
+- Botones: Sin bordes, con gradientes o fondos sólidos
+- Sliders: Controles personalizados, transiciones fluidas
+
+**Aspectos técnicos**
+- Accesibilidad: Contraste WCAG AA mínimo, semántica HTML5, aria-labels
+- Rendimiento: Optimización de imágenes, lazy loading, Core Web Vitals
+- SEO: Metadatos completos, estructura de headings jerárquica
+- Compatibilidad: Testing en múltiples navegadores y dispositivos
+
+**Personalidad de marca en el contenido**
+- Tono audaz pero profesional
+- Mensajes directos y concisos
+- Uso selectivo de emojis y símbolos
+- Lenguaje moderno sin jerga excesiva
+- Enfoque en resultados y transformación
+
+Al desarrollar componentes para MSNR, siempre priorizar la coherencia visual con esta guía, la experiencia de usuario intuitiva, y el rendimiento técnico impecable. Cada elemento debe estar alineado con el propósito disruptivo de la marca mientras mantiene la elegancia profesional.
