@@ -79,7 +79,7 @@ export default function Header() {
               priority
             />
           </motion.div>
-          <span className="font-mundial font-extrabold text-xl text-[#E9FC87] group-hover:text-[#F2F2F2] transition-colors">
+          <span className="font-mundial font-extrabold text-xl text-[#ffffffd5] group-hover:text-[#E9FC87] transition-colors">
             MSNR®
           </span>
         </Link>

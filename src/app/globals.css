@@ -63,3 +63,5 @@ body {
   0% { filter: blur(3px) brightness(1.05) saturate(1.05); }
   100% { filter: blur(3px) brightness(1.05) saturate(1.05); background-position: 360deg; }
 }
+
+/* El código de animación de marquee fue eliminado ya que se optó por múltiples badges estáticos */

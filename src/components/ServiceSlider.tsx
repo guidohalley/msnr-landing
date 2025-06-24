@@ -275,10 +275,12 @@ export default function ServiceSlider() {
           </Splide>
           
           {/* Controles personalizados */}
-          <div className="absolute z-20 w-full top-1/2 -translate-y-1/2 flex justify-between px-6 md:px-16 pointer-events-none">
+          <div className="absolute z-20 w-full top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
             <motion.button
               onClick={goPrev}
-              className="p-4 rounded-full bg-[#262626]/90 border border-[#E9FC87]/30 text-[#F2F2F2] hover:bg-[#E9FC87]/20 transition-all duration-300 shadow-xl backdrop-blur-sm pointer-events-auto"
+              className="p-4 rounded-full bg-[#262626]/90 border border-[#E9FC87]/30 text-[#F2F2F2] 
+                      hover:bg-[#E9FC87]/20 transition-all duration-300 shadow-xl backdrop-blur-sm pointer-events-auto
+                      ml-2 md:ml-10 lg:ml-20 relative z-30"
               whileHover={{ scale: 1.15, x: -5, boxShadow: "0 0 20px rgba(233, 252, 135, 0.3)" }}
               whileTap={{ scale: 0.92 }}
               aria-label="Servicio anterior"
@@ -289,7 +291,9 @@ export default function ServiceSlider() {
             </motion.button>
             <motion.button
               onClick={goNext}
-              className="p-4 rounded-full bg-[#262626]/90 border border-[#E9FC87]/30 text-[#F2F2F2] hover:bg-[#E9FC87]/20 transition-all duration-300 shadow-xl backdrop-blur-sm pointer-events-auto"
+              className="p-4 rounded-full bg-[#262626]/90 border border-[#E9FC87]/30 text-[#F2F2F2] 
+                      hover:bg-[#E9FC87]/20 transition-all duration-300 shadow-xl backdrop-blur-sm pointer-events-auto
+                      mr-2 md:mr-10 lg:mr-20 relative z-30"
               whileHover={{ scale: 1.15, x: 5, boxShadow: "0 0 20px rgba(233, 252, 135, 0.3)" }}
               whileTap={{ scale: 0.92 }}
               aria-label="Siguiente servicio"

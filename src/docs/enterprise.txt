@@ -1,5 +1,5 @@
 **¿Qué es Misionary?**
-Misionary es una agencia de marketing digital con sede en Posadas (Misiones, Argentina). Su propósito es “romper esquemas” mediante estrategias disruptivas que potencien la identidad de cada marca; por eso adopta el arquetipo del *forajido*, con el lema «Nuestra misión es cumplir con tu misión». Su público ideal son empresas y emprendedores que valoran la originalidad y buscan diferenciarse de la competencia.&#x20;
+Misionary es una agencia de marketing digital con sede en Posadas (Misiones, Argentina). Su propósito es "romper esquemas" mediante estrategias disruptivas que potencien la identidad de cada marca; por eso adopta el arquetipo del *forajido*, con el lema «Nuestra misión es cumplir con tu misión». Su público ideal son empresas y emprendedores que valoran la originalidad y buscan diferenciarse de la competencia.&#x20;
 
 **Identidad visual – colores principales**
 
@@ -13,7 +13,7 @@ Misionary es una agencia de marketing digital con sede en Posadas (Misiones, Arg
 La familia **Mundial** se usa en todas sus variables (Thin, Light, Regular, Bold, Black). Es geométrica, contemporánea y muy legible, lo que refuerza el tono moderno y tecnológico de la marca en aplicaciones impresas y digitales.&#x20;
 
 **Servicios y actividades principales**
-Misionary ofrece un servicio integral “todo tu marketing bajo un mismo techo”:
+Misionary ofrece un servicio integral "todo tu marketing bajo un mismo techo":
 
 * Estrategia y **Gestión de Redes Sociales** (planificación, redacción, interacción y métricas).
 * **Diseño Gráfico** (piezas para RR.SS., adaptación multiformato, optimización de logotipos y manuales de marca).
@@ -81,3 +81,213 @@ MSNR (Misionary) es una agencia de marketing digital disruptiva que sigue el arq
 - Enfoque en resultados y transformación
 
 Al desarrollar componentes para MSNR, siempre priorizar la coherencia visual con esta guía, la experiencia de usuario intuitiva, y el rendimiento técnico impecable. Cada elemento debe estar alineado con el propósito disruptivo de la marca mientras mantiene la elegancia profesional.
+
+**PROMPT ESPECÍFICO PARA FUTURAS IAs - ESTILIZACIÓN DE COMPONENTES MISIONARY**
+
+Este prompt complementa la guía de estilo anterior y proporciona directrices específicas para el desarrollo y estilización coherente de nuevos componentes, basándose en los elementos ya implementados.
+
+**Fundamentos de diseño visual para componentes nuevos**
+
+Al crear nuevos componentes o refactorizar existentes, debes seguir estos lineamientos específicos:
+
+**1. Metodología de diseño y estructura:**
+   - Todo componente debe ser diseñado con enfoque mobile-first, probando primero en 375px y escalando a desktop
+   - La estructura debe utilizar CSS Grid para layouts principales y Flexbox para alineaciones internas
+   - Seguir un esquema de espaciado consistente (múltiplos de 4px) con mayor separación en desktop
+   - Organizar componentes en secciones claramente delimitadas por elementos decorativos sutiles (líneas de gradiente, patrones)
+   - Crear relaciones visuales entre componentes mediante repetición de elementos decorativos comunes
+
+**2. Elementos visuales clave (presentes en TODOS los componentes):**
+   - Gradientes sutiles aplicados a fondos (#262626 → #1a1a1a)
+   - Elementos flotantes o de profundidad (manchas de luz verde/violeta blur-[120px])
+   - Patrones de fondo sutiles (patrones de puntos, líneas o grids usando #E9FC87 con baja opacidad)
+   - Al menos una línea decorativa (horizontal o vertical) con degradado y opacidad variable
+   - Badges informativos con bordes finos y fondo semi-transparente (bg-[#E9FC87]/10, border-[#E9FC87]/20)
+   - Iconos de Lucide-React con tamaños consistentes (w-4 h-4 para detalles, w-5 h-5 para elementos claves)
+
+**3. Microinteracciones obligatorias:**
+   - Todo botón debe tener efectos hover (escala 1.03-1.05) y tap (escala 0.97-0.98)
+   - Los enlaces deben incluir transiciones en texto y algún elemento decorativo adicional al hacer hover
+   - Elementos principales deben animarse con staggered animations al entrar en viewport
+   - Cards deben implementar sutiles efectos tilt/hover usando springX y springY de Framer Motion
+   - Los iconos en elementos interactivos deben tener su propia animación independiente (rotación, traslación, etc.)
+
+**4. CSS avanzado y elementos de diseño específicos:**
+   - Usar backdrop-blur-sm en elementos superpuestos para crear profundidad visual (valor consistente entre 5-8px)
+   - Todos los elementos interactivos deben tener estados focus visibles mediante rings (#E9FC87/50)
+   - Implementar box-shadows con colores de marca (#E9FC87) con opacidades entre 10-20%
+   - Para contenedores, usar bordes finos (1px) con colores de marca a baja opacidad (10-30%)
+   - Aplicar corner-radius consistente (bordes redondeados): botones (rounded-full), cards (rounded-2xl), containers (rounded-xl)
+
+**5. Framer Motion - Animaciones específicas:**
+   - Entrada de componentes: y: 30 → 0, opacity: 0 → 1, duration: 0.7, ease: [0.22, 1, 0.36, 1]
+   - Animaciones secuenciales: staggerChildren: 0.1-0.2, delayChildren: 0.2-0.3
+   - Transiciones hover: type: "spring", stiffness: 300, damping: 15-20
+   - PathLength animations para líneas: pathLength: 0 → 1, duration: 1.5, ease: "easeInOut"
+   - Efectos de respiración sutiles: scale: [1, 1.03, 1], repeat: Infinity, repeatDelay: 3, duration: 1.5
+
+**6. Componentes ya implementados como referencia:**
+   - Hero3: Estructura de sección principal con badges múltiples, animaciones escalonadas y diseño mobile-first
+   - Footer: Sistema de gradientes, líneas, grid responsive y microinteracciones en enlaces
+   - ServiceSlider: Flechas laterales, sistema de cards con efecto tilt, animaciones secuenciales
+   - Steps: Cards con fondo semi-transparente, numeración visual, conectores entre elementos
+
+**7. Elementos de identidad visual consistentes:**
+   - Las cabeceras de sección deben incluir: badge con Sparkles, título con palabra destacada en #E9FC87, descripción
+   - Los CTAs principales deben usar bg-[#E9FC87] con texto en #262626
+   - Los iconos decorativos deben usar el mismo lenguaje visual (Lucide-React, estilizados con los colores de marca)
+   - Las imágenes deben tener efectos de blur o gradiente para integrarse con el diseño global
+   - Textos destacados deben usar subrayados animados o elementos decorativos consistentes
+
+**8. Ejemplos concretos de implementación:**
+
+**Ejemplo de cabecera de sección:**
+```tsx
+<motion.div 
+  className="flex flex-col items-center text-center mb-16"
+  variants={itemVariants}
+>
+  <div className="inline-flex items-center justify-center mb-6 gap-2 px-3 py-1.5 rounded-full 
+                bg-[#E9FC87]/10 border border-[#E9FC87]/20 text-[#E9FC87]">
+    <Sparkles className="w-3.5 h-3.5 mr-1" />
+    <span className="text-xs font-medium tracking-wider">TÍTULO DE SECCIÓN</span>
+  </div>
+  <h2 className="text-3xl md:text-4xl font-bold text-[#F2F2F2] mb-4">
+    Título principal con <span className="text-[#E9FC87]">palabra destacada</span>
+  </h2>
+  <p className="max-w-2xl text-[#F2F2F2]/70 text-lg mb-8">
+    Descripción concisa pero impactante que explique el propósito de la sección.
+  </p>
+</motion.div>
+```
+
+**Ejemplo de badge informativo:**
+```tsx
+<motion.div
+  className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 
+            text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase 
+            shadow-xl backdrop-blur-sm flex items-center gap-2"
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.2 }}
+  whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+>
+  <IconComponent className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+  <span>Texto del Badge</span>
+</motion.div>
+```
+
+**Ejemplo de elemento flotante decorativo:**
+```tsx
+<motion.div
+  className="absolute w-44 h-44 md:w-64 md:h-64 rounded-2xl border border-[#E9FC87]/30 
+            bg-gradient-to-br from-[#262626]/80 to-transparent backdrop-blur-md"
+  initial={{ opacity: 0, x: "70vw", y: "10vh", rotate: -20, scale: 0.8 }}
+  animate={{ 
+    opacity: 0.7, 
+    x: "65vw", 
+    y: "15vh", 
+    rotate: -5,
+    scale: 1,
+    transition: { 
+      duration: 10, 
+      repeat: Infinity, 
+      repeatType: "reverse",
+      ease: "easeInOut"
+    } 
+  }}
+>
+  {/* Contenido interno opcional */}
+</motion.div>
+```
+
+**Ejemplo de CTA principal:**
+```tsx
+<motion.a 
+  href="#link"
+  className="group flex items-center gap-2 px-6 py-3 rounded-full bg-[#E9FC87] text-[#262626] 
+          font-semibold transition-all hover:shadow-lg hover:shadow-[#E9FC87]/20
+          focus:ring-2 focus:ring-[#E9FC87]/50 focus:outline-none"
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.98 }}
+>
+  <span>Texto del CTA</span>
+  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+</motion.a>
+```
+
+**9. Integración entre componentes:**
+   - Mantener coherencia visual entre secciones adyacentes mediante elementos de transición
+   - Compartir elementos decorativos comunes (líneas, gradientes, patrones) entre componentes
+   - Animar componentes relacionados con variantes similares de Framer Motion
+   - Utilizar referencias de color y espaciado consistentes entre componentes
+   - Implementar efectos de paralaje o scroll-triggered que creen relación entre secciones
+
+**10. Patrones avanzados para casos específicos:**
+
+**Fondos de sección:**
+```tsx
+{/* Fondo con gradientes y efectos */}
+<div className="absolute inset-0 z-0">
+  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#262626]/90 via-[#262626] to-[#1a1a1a]" />
+  <div className="absolute bottom-0 left-20 w-[500px] h-[500px] rounded-full bg-[#E9FC87]/5 blur-3xl" />
+  <div className="absolute top-20 right-10 w-[300px] h-[300px] rounded-full bg-[#BCB4FF]/5 blur-3xl" />
+  
+  {/* Patrón de puntos */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="h-full w-full bg-[radial-gradient(#E9FC87_1px,transparent_1px)] [background-size:24px_24px]"></div>
+  </div>
+</div>
+```
+
+**Líneas decorativas animadas:**
+```tsx
+{/* Línea luminosa superior */}
+<div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E9FC87]/30 to-transparent z-10" />
+
+{/* O usando SVG para más complejidad */}
+<svg className="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
+  <motion.path
+    d="M0,400 Q300,350 600,450 T1200,400 T1800,450"
+    stroke="url(#gradient1)"
+    strokeWidth="1.5"
+    fill="none"
+    initial={{ pathLength: 0, opacity: 0 }}
+    animate={{ 
+      pathLength: 1, 
+      opacity: 0.5,
+      transition: { duration: 2.5, ease: "easeOut" } 
+    }}
+  />
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#262626" stopOpacity="0" />
+      <stop offset="50%" stopColor="#E9FC87" stopOpacity="1" />
+      <stop offset="100%" stopColor="#262626" stopOpacity="0" />
+    </linearGradient>
+  </defs>
+</svg>
+```
+
+Al implementar estos lineamientos específicos en todos los componentes, asegurarás una experiencia visual coherente, moderna y alineada con la identidad disruptiva de MSNR/Misionary, manteniendo el balance entre innovación y profesionalismo que define la marca.
+
+**NOTAS TÉCNICAS ADICIONALES**
+
+- Las clases de Tailwind deben organizarse por categorías (layout → spacing → colores → efectos)
+- Los componentes pueden usar variables CSS personalizadas para valores específicos de la marca
+- Preferir CSS nativo y Tailwind sobre bibliotecas externas cuando sea posible
+- Usar el hook useInView de Framer Motion para activar animaciones al entrar en viewport
+- Implementar memoización (React.memo, useMemo) en componentes con animaciones complejas
+- Utilizar interfaces TypeScript estrictas para todas las props de componentes
+
+**ESTRATEGIAS DE OPTIMIZACIÓN Y MANTENIMIENTO**
+
+- Evitar reflows innecesarios agrupando elementos animados con `will-change: transform`
+- Usar lazy loading para imágenes y componentes pesados que estén fuera del viewport inicial
+- Implementar el código de animaciones con Framer Motion de forma que sean desactivables en preferencia 'reduced-motion'
+- Proporcionar alternativas de alto contraste para elementos con bajo contraste intencional
+- Comentar adecuadamente secciones complejas de animación y estilización para facilitar mantenimiento
+- Implementar Storybook o documentación visual para los componentes principales
+- Mantener una guía de testeo específica para verificar la coherencia visual en cada implementación
+
+Este prompt debe usarse como complemento a la guía de estilo principal para garantizar coherencia visual y técnica en todos los componentes de la landing page de MSNR.

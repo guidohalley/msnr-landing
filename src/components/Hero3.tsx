@@ -3,7 +3,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { Sparkles, ChevronDown, Code2 } from "lucide-react";
+import { 
+  ChevronDown, 
+  MapPin, 
+  BarChart3, 
+  Video, 
+  PenTool, 
+  Megaphone,
+  Globe, 
+  Code
+} from "lucide-react";
 
 // Componente de partículas flotantes 3D
 function FloatingElements() {
@@ -243,19 +252,85 @@ export default function Hero3() {
         className="relative z-20 flex flex-col items-center text-center max-w-5xl mx-auto mt-16 md:mt-0"
         style={{ opacity, scale, y }}
       >
-        {/* Badge superior */}
-        <motion.div
-          className="mb-8 px-5 py-2 rounded-full bg-[#262626]/80 border border-[#E9FC87]/20 text-[#F2F2F2]/80 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur flex items-center gap-2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          <Sparkles className="inline-block w-4 h-4 text-[#E9FC87]" />
-          <span>Posadas, Misiones</span>
-          <span className="px-1.5">•</span>
-          <Code2 className="inline-block w-4 h-4 text-[#BCB4FF]" />
-          <span>Agencia de Marketing Digital</span>
-        </motion.div>
+        {/* Multiple badges con iconos específicos */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8 max-w-4xl">
+          <motion.div
+            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+          >
+            <MapPin className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <span>Posadas, Misiones</span>
+          </motion.div>
+
+          <motion.div
+            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+          >
+            <BarChart3 className="inline-block w-4 h-4 text-[#BCB4FF]" strokeWidth={2.5} />
+            <span>Marketing Digital</span>
+          </motion.div>
+
+          <motion.div
+            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+          >
+            <Video className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <span>Producción Audiovisual</span>
+          </motion.div>
+
+          <motion.div
+            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+          >
+            <PenTool className="inline-block w-4 h-4 text-[#BCB4FF]" strokeWidth={2.5} />
+            <span>Diseño Gráfico</span>
+          </motion.div>
+
+          <motion.div
+            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+          >
+            <Megaphone className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <span>Campañas Publicitarias</span>
+          </motion.div>
+
+          <motion.div
+            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+          >
+            <Code className="inline-block w-4 h-4 text-[#BCB4FF]" strokeWidth={2.5} />
+            <span>Sistemas Web</span>
+          </motion.div>
+
+          <motion.div
+            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+          >
+            <Globe className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <span>Páginas Web</span>
+          </motion.div>
+        </div>
         
         {/* Título principal con animación de caracteres - Adaptativo a mobile */}
         <motion.div 
@@ -269,7 +344,7 @@ export default function Hero3() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {(isMobile ? "MSNR" : "MISIONARY").split("").map((char, index) => (
+            {(isMobile ? "MSNR®" : "MISIONARY").split("").map((char, index) => (
               <motion.span
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
