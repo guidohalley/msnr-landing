@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '480px', // Breakpoint para móviles pequeños
+      },
       colors: {
         primary: {
           light: '#4f8cff',

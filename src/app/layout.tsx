@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
-import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,23 +17,40 @@ export const metadata: Metadata = {
   title: "Impulsa tu marca con Misionary | Agencia de Marketing Digital",
   description:
     "Estrategia digital, publicidad, diseño web y producción audiovisual para marcas que quieren crecer. Agencia Misionary.",
+  keywords: "marketing digital, diseño web, producción audiovisual, agencia de marketing, misiones, posadas, argentina, publicidad, seo, sem, redes sociales",
+  authors: [{ name: "Misionary Agency" }],
+  applicationName: "Misionary Agency",
+  creator: "Misionary Agency",
+  publisher: "Misionary Agency",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   openGraph: {
-    title: "Impulsa tu marca con Misionary | Agencia de Marketing Digital",
+    title: "Agencia de Marketing en Posadas Misiones | Misionary",
     description:
       "Estrategia digital, publicidad, diseño web y producción audiovisual para marcas que quieren crecer. Agencia Misionary.",
-    url: "https://misionary.agency/",
+    url: "https://misionary.com",
     siteName: "Misionary",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Impulsa tu marca con Misionary",
+        alt: "Agencia de Marketing Digital en Posadas Misiones | Misionary",
       },
     ],
     locale: "es_AR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Impulsa tu marca con Misionary | Agencia de Marketing Digital",
+    description: "Sitios Web, Publicidad, Administracion de Redes Sociales, Diseño Grafico y producción audiovisual para marcas que quieren crecer. Agencia Misionary.",
+    images: ["/og-image.png"],
+  },
+  category: "Marketing Digital",
 };
 
 export default function RootLayout({
@@ -43,14 +59,20 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <head />
+    <html 
+      lang="es" 
+      suppressHydrationWarning
+      className="scroll-smooth"
+    >
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#262626" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground transition-colors`}
+        suppressHydrationWarning
       >
-        <a href="#main" className="sr-only focus:not-sr-only absolute top-2 left-2 z-50 bg-primary text-white px-4 py-2 rounded">Saltar al contenido principal</a>
-        <Header />
-        {/* Header global, toggle dark mode y skip link se agregan aquí */}
         {children}
       </body>
     </html>

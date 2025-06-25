@@ -56,9 +56,14 @@ export default function Header() {
           : "bg-transparent"
       }`}
       style={{ opacity: scrolled ? 1 : headerOpacity }}
+      role="banner"
     >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 font-mundial">
-        <Link href="/" className="flex items-center gap-3 group font-mundial">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 font-mundial" role="navigation" aria-label="Menú principal">
+        <Link 
+          href="/" 
+          className="flex items-center gap-3 group font-mundial"
+          aria-label="Inicio - Misionary"
+        >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -83,33 +88,36 @@ export default function Header() {
             MSNR®
           </span>
         </Link>
-        <ul className="flex gap-6 items-center text-sm font-medium font-mundial">
-          <li>
+        <ul className="flex gap-6 items-center text-sm font-semibold font-mundial" role="menubar">
+          <li role="none">
             <a
               href="#servicios"
-              className="font-mundial text-[#F2F2F2] hover:text-[#E9FC87] transition-colors"
+              className="font-mundial text-[#F2F2F2] hover:text-[#E9FC87] transition-colors px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 rounded-lg"
+              role="menuitem"
             >
               Servicios
             </a>
           </li>
-          <li>
+          <li role="none">
             <a
               href="#como-trabajamos"
-              className="font-mundial text-[#F2F2F2] hover:text-[#E9FC87] transition-colors"
+              className="font-mundial text-[#F2F2F2] hover:text-[#E9FC87] transition-colors px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 rounded-lg"
+              role="menuitem"
             >
               Método
             </a>
           </li>
-          <li>
+          <li role="none">
             <motion.a
               ref={whatsappBtnRef}
               href="https://wa.me/5493764609701"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center font-mundial bg-[#25D366] text-[#262626] font-bold px-4 py-2 rounded-full shadow-lg hover:bg-[#128C7E] hover:text-white focus:ring-2 focus:ring-[#E9FC87]/50 transition-all duration-300 relative overflow-hidden"
+              className="flex items-center font-mundial bg-[#25D366] text-[#262626] font-bold px-4 py-2 rounded-full shadow-lg hover:bg-[#128C7E] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 focus-visible:ring-2 focus-visible:ring-[#E9FC87]/60 transition-all duration-300 relative overflow-hidden"
               whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.97 }}
               aria-label="Contactar por WhatsApp"
+              role="menuitem"
             >
               <span
                 className="absolute inset-0 rounded-full pointer-events-none"
@@ -117,6 +125,7 @@ export default function Header() {
                   boxShadow: "0 0 24px 4px #25D36655",
                   opacity: 0.5,
                 }}
+                aria-hidden="true"
               />
               <WhatsappIcon className="w-5 h-5 mr-2" aria-hidden="true" />
               <span>WhatsApp</span>

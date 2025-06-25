@@ -74,11 +74,13 @@ export default function Steps() {
 	return (
 		<section 
 			ref={stepsRef} 
-			className="relative w-full py-24 px-4 overflow-hidden bg-gradient-to-b from-background to-background/90"
+			className="relative w-full py-24 px-4 overflow-hidden bg-gradient-to-b from-[#262626] to-[#1a1a1a]"
 			id="como-trabajamos"
+			aria-labelledby="steps-heading"
+			role="region"
 		>
 			{/* Elementos decorativos de fondo */}
-			<div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+			<div className="absolute inset-0 z-0 opacity-40 pointer-events-none" aria-hidden="true">
 				<div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E9FC87]/30 to-transparent" />
 				<div className="absolute -top-40 right-1/4 w-[500px] h-[500px] rounded-full bg-[#E9FC87]/5 blur-[120px]" />
 				<div className="absolute bottom-40 -left-10 w-[400px] h-[400px] rounded-full bg-[#BCB4FF]/5 blur-[140px]" />
@@ -100,11 +102,12 @@ export default function Steps() {
 					transition={{ duration: 0.7 }}
 				>
 					<div className="inline-flex items-center justify-center mb-4 gap-2 px-3 py-1.5 rounded-full 
-									bg-[#E9FC87]/10 border border-[#E9FC87]/20 text-[#E9FC87] shadow-lg shadow-[#E9FC87]/5">
+									bg-[#E9FC87]/10 border border-[#E9FC87]/20 text-[#E9FC87] shadow-lg shadow-[#E9FC87]/5"
+						 aria-hidden="true">
 						<Sparkles className="w-3.5 h-3.5 mr-1" />
 						<span className="text-xs font-medium tracking-wider">NUESTRO PROCESO</span>
 					</div>
-					<h2 className="text-3xl md:text-5xl font-bold mb-6 font-mundial">
+					<h2 id="steps-heading" className="text-3xl md:text-5xl font-bold mb-6 font-mundial text-[#F2F2F2]">
 						Cómo <span className="text-[#E9FC87] relative inline-block">
 							trabajamos
 							<motion.span 
@@ -113,6 +116,7 @@ export default function Steps() {
 								whileInView={{ width: "100%" }}
 								viewport={{ once: true }}
 								transition={{ delay: 0.5, duration: 0.7 }}
+								aria-hidden="true"
 							/>
 						</span>
 					</h2>
@@ -128,9 +132,11 @@ export default function Steps() {
 					initial="hidden"
 					animate={isInView ? "visible" : "hidden"}
 					variants={containerVariants}
+					role="list"
+					aria-label="Nuestros 4 pasos de trabajo"
 				>
 					{/* Línea de conexión horizontal en desktop */}
-					<div className="hidden md:block absolute top-[90px] left-1/2 -translate-x-1/2 w-[80%] h-1 z-0">
+					<div className="hidden md:block absolute top-[90px] left-1/2 -translate-x-1/2 w-[80%] h-1 z-0" aria-hidden="true">
 						<svg 
 							width="100%" 
 							height="4" 
@@ -138,6 +144,7 @@ export default function Steps() {
 							fill="none" 
 							preserveAspectRatio="none"
 							className="w-full"
+							aria-hidden="true"
 						>
 							<motion.path
 								d="M0,2 L1000,2"
@@ -164,17 +171,19 @@ export default function Steps() {
 								key={step.title}
 								className="flex flex-col items-center text-center relative"
 								variants={itemVariants}
+								role="listitem"
 							>
 								{/* Línea conectora vertical en mobile */}
 								{i < steps.length - 1 && (
-									<div className="md:hidden absolute -bottom-16 left-1/2 transform -translate-x-1/2 h-20 w-px bg-gradient-to-b from-[#E9FC87]/70 to-transparent z-0" />
+									<div className="md:hidden absolute -bottom-16 left-1/2 transform -translate-x-1/2 h-20 w-px bg-gradient-to-b from-[#E9FC87]/70 to-transparent z-0" aria-hidden="true" />
 								)}
 
 								{/* Contenedor numerado con borde */}
 								<div className="relative w-[170px] md:w-full">
 									{/* Número del paso */}
 									<div className="absolute -top-3 -left-3 md:top-0 md:-left-1 bg-[#E9FC87] w-6 h-6 rounded-full 
-											flex items-center justify-center text-xs font-bold text-[#262626] z-10 shadow-lg shadow-[#E9FC87]/10">
+											flex items-center justify-center text-xs font-bold text-[#262626] z-10 shadow-lg shadow-[#E9FC87]/10"
+											 aria-label={`Paso ${i + 1}`}>
 										{i + 1}
 									</div>
 									
@@ -187,11 +196,12 @@ export default function Steps() {
 											boxShadow: "0 0 30px 0 rgba(233, 252, 135, 0.2)"
 										}}
 										transition={{ type: "spring", stiffness: 300 }}
+										aria-hidden="true"
 									>
 										<step.icon className="w-8 h-8 text-[#E9FC87]" aria-hidden="true" />
 										
 										{/* Destellos de fondo */}
-										<div className="absolute inset-0 overflow-hidden rounded-2xl">
+										<div className="absolute inset-0 overflow-hidden rounded-2xl" aria-hidden="true">
 											<div className="absolute -inset-[70%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
 													w-full h-full rotate-45 bg-gradient-to-r from-transparent via-[#E9FC87]/10 to-transparent 
 													opacity-0 hover:opacity-100 transition-opacity duration-1000"></div>
@@ -199,11 +209,11 @@ export default function Steps() {
 									</motion.div>
 
 									{/* Título y descripción */}
-									<div className="bg-[#262626]/50 backdrop-blur-sm rounded-xl px-4 py-5 border border-[#E9FC87]/10">
-										<h3 className="text-lg font-bold mb-2 font-mundial text-[#E9FC87]">
+									<div className="bg-[#262626]/50 backdrop-blur-sm rounded-xl px-4 py-5 border border-[#E9FC87]/10 shadow-lg shadow-black/10">
+										<h3 className="text-lg font-bold mb-2 font-mundial text-[#E9FC87]" id={`step-title-${i+1}`}>
 											{step.title}
 										</h3>
-										<p className="text-sm text-[#F2F2F2]/80 mx-auto">
+										<p className="text-sm text-[#F2F2F2]/80 mx-auto" aria-labelledby={`step-title-${i+1}`}>
 											{step.desc}
 										</p>
 									</div>
@@ -211,7 +221,7 @@ export default function Steps() {
 
 								{/* Flecha hacia el siguiente paso (solo para desktop) */}
 								{i < steps.length - 1 && (
-									<div className="hidden md:flex absolute -right-5 top-[58px] z-10">
+									<div className="hidden md:flex absolute -right-5 top-[58px] z-10" aria-hidden="true">
 										<ArrowRight className="w-5 h-5 text-[#E9FC87]/60" />
 									</div>
 								)}
@@ -231,14 +241,15 @@ export default function Steps() {
                                  focus:ring-2 focus:ring-[#E9FC87]/50 focus:outline-none"
 							whileHover={{ scale: 1.03, boxShadow: "0 0 30px 0 rgba(233, 252, 135, 0.2)" }}
 							whileTap={{ scale: 0.98 }}
+							aria-label="Iniciar proyecto con Misionary"
 						>
 							Comienza tu proyecto
-							<ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+							<ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
 						</motion.a>
 					</motion.div>
 					
 					{/* Línea decorativa final */}
-					<div className="mt-24 flex justify-center">
+					<div className="mt-24 flex justify-center" aria-hidden="true">
 						<div className="w-16 h-1 rounded-full bg-gradient-to-r from-[#E9FC87]/20 via-[#E9FC87] to-[#E9FC87]/20"></div>
 					</div>
 				</motion.div>

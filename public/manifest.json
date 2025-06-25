@@ -1,0 +1,26 @@
+{
+  "name": "Misionary - Agencia de Marketing Digital",
+  "short_name": "MSNR",
+  "description": "Estrategia digital, publicidad, diseño web y producción audiovisual para marcas que quieren crecer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#262626",
+  "theme_color": "#E9FC87",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "es-AR",
+  "dir": "ltr",
+  "orientation": "portrait"
+}

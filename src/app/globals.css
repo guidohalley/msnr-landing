@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Definir valores personalizados para móviles muy pequeños */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -64,4 +65,64 @@ body {
   100% { filter: blur(3px) brightness(1.05) saturate(1.05); background-position: 360deg; }
 }
 
-/* El código de animación de marquee fue eliminado ya que se optó por múltiples badges estáticos */
+/* Estilos de accesibilidad global */
+/* Focus visible mejorado para todos los elementos interactivos */
+:focus-visible {
+  outline: 2px solid #E9FC87 !important;
+  outline-offset: 3px !important;
+  border-radius: 0.25rem;
+}
+
+/* Mejora de accesibilidad para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Asegurar que no hay animaciones si el usuario prefiere reducido movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mejora de textos para lectores con deficiencias visuales */
+.improve-text-readability {
+  text-decoration-thickness: 2px; /* Subrayados más gruesos */
+  text-underline-offset: 0.15em; /* Separación del texto */
+}
+
+/* Mejora de contraste para elementos con opacidades para asegurar legibilidad */
+.high-contrast {
+  color: rgba(255, 255, 255, 0.95) !important;
+  opacity: 1 !important;
+}
+
+/* Skip link - menos dependencia de componentes */
+.skip-link {
+  position: fixed;
+  top: 2px;
+  left: 2px;
+  z-index: 9999;
+  background-color: #E9FC87;
+  color: #262626;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  transform: translateY(-120%);
+  transition: transform 0.3s;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}

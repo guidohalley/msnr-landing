@@ -230,9 +230,9 @@ export default function Hero3() {
       {/* Elementos flotantes 3D */}
       <FloatingElements />
       
-      {/* Logo prominente superior */}
+      {/* Logo prominente superior - Posicionamiento optimizado para evitar superposición en pantallas pequeñas */}
       <motion.div
-        className="absolute top-20 left-1/2 -translate-x-1/2 z-30 w-80 md:w-[28rem] h-28 md:h-36"
+        className="absolute top-8 xs:top-10 sm:top-16 md:top-20 left-1/2 -translate-x-1/2 z-30 w-56 xs:w-60 sm:w-72 md:w-[28rem] h-20 xs:h-22 sm:h-28 md:h-36"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -246,88 +246,95 @@ export default function Hero3() {
         />
       </motion.div>
       
-      {/* Contenido central */}
+      {/* Contenido central - Mayor margen superior en móviles para evitar superposición con el logo */}
       <motion.div 
         ref={contentRef}
-        className="relative z-20 flex flex-col items-center text-center max-w-5xl mx-auto mt-16 md:mt-0"
+        className="relative z-20 flex flex-col items-center text-center max-w-5xl mx-auto mt-28 xs:mt-32 sm:mt-36 md:mt-16 pt-10 sm:pt-8 md:pt-0"
         style={{ opacity, scale, y }}
       >
-        {/* Multiple badges con iconos específicos */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8 max-w-4xl">
+        {/* Multiple badges con iconos específicos - Tamaño y espaciado reducidos en móvil para evitar superposición */}
+        <div className="flex flex-wrap justify-center gap-1.5 xs:gap-2 sm:gap-3 mb-4 xs:mb-5 sm:mb-8 max-w-4xl" aria-label="Servicios principales" role="list">
           <motion.div
-            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-1 sm:gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+            role="listitem"
           >
-            <MapPin className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <MapPin className="inline-block w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 text-[#E9FC87]" strokeWidth={2.5} aria-hidden="true" />
             <span>Posadas, Misiones</span>
           </motion.div>
 
           <motion.div
-            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-1 sm:gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+            role="listitem"
           >
-            <BarChart3 className="inline-block w-4 h-4 text-[#BCB4FF]" strokeWidth={2.5} />
+            <BarChart3 className="inline-block w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 text-[#BCB4FF]" strokeWidth={2.5} aria-hidden="true" />
             <span>Marketing Digital</span>
           </motion.div>
 
           <motion.div
-            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-1 sm:gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+            role="listitem"
           >
-            <Video className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <Video className="inline-block w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 text-[#E9FC87]" strokeWidth={2.5} aria-hidden="true" />
             <span>Producción Audiovisual</span>
           </motion.div>
 
           <motion.div
-            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-1 sm:gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+            role="listitem"
           >
-            <PenTool className="inline-block w-4 h-4 text-[#BCB4FF]" strokeWidth={2.5} />
+            <PenTool className="inline-block w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 text-[#BCB4FF]" strokeWidth={2.5} aria-hidden="true" />
             <span>Diseño Gráfico</span>
           </motion.div>
 
           <motion.div
-            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-1 sm:gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+            role="listitem"
           >
-            <Megaphone className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <Megaphone className="inline-block w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 text-[#E9FC87]" strokeWidth={2.5} aria-hidden="true" />
             <span>Campañas Publicitarias</span>
           </motion.div>
 
           <motion.div
-            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-1 sm:gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+            role="listitem"
           >
-            <Code className="inline-block w-4 h-4 text-[#BCB4FF]" strokeWidth={2.5} />
+            <Code className="inline-block w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 text-[#BCB4FF]" strokeWidth={2.5} aria-hidden="true" />
             <span>Sistemas Web</span>
           </motion.div>
 
           <motion.div
-            className="px-4 py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-2"
+            className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full bg-[#262626]/90 border border-[#E9FC87]/20 text-[#F2F2F2]/90 text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm flex items-center gap-1 sm:gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(38, 38, 38, 0.95)" }}
+            role="listitem"
           >
-            <Globe className="inline-block w-4 h-4 text-[#E9FC87]" strokeWidth={2.5} />
+            <Globe className="inline-block w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 text-[#E9FC87]" strokeWidth={2.5} aria-hidden="true" />
             <span>Páginas Web</span>
           </motion.div>
         </div>
@@ -339,10 +346,11 @@ export default function Hero3() {
           animate="visible"
         >
           <motion.h1
-            className="text-6xl md:text-8xl lg:text-9xl font-black font-mundial text-[#F2F2F2] tracking-tighter mb-6"
+            className="text-4xl xs:text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black font-mundial text-[#F2F2F2] tracking-tighter mb-3 xs:mb-4 md:mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
+            aria-label={isMobile ? "MSNR" : "MISIONARY"}
           >
             {(isMobile ? "MSNR®" : "MISIONARY").split("").map((char, index) => (
               <motion.span
@@ -358,6 +366,7 @@ export default function Hero3() {
                   ease: [0.215, 0.61, 0.355, 1]
                 }}
                 className="inline-block relative hover:text-[#E9FC87] transition-colors duration-300"
+                aria-hidden="true"
               >
                 {char}
               </motion.span>
@@ -366,7 +375,7 @@ export default function Hero3() {
           
           {/* Mensaje principal (tagline) */}
           <motion.p
-            className="text-xl md:text-2xl text-[#F2F2F2]/80 max-w-2xl mb-10 font-mundial"
+            className="text-base xs:text-lg sm:text-xl md:text-2xl text-[#F2F2F2]/80 max-w-2xl mb-4 xs:mb-6 sm:mb-8 md:mb-10 font-mundial"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
@@ -375,10 +384,14 @@ export default function Hero3() {
           </motion.p>
         </motion.div>
         
-        {/* Botón de scroll down */}
+        {/* Botón de scroll down - Reducido tamaño en móvil */}
         <motion.button
           onClick={scrollToNextSection}
-          className="mt-12 p-4 rounded-full bg-[#262626]/80 border border-[#E9FC87]/20 hover:bg-[#E9FC87]/10 transition-all duration-300 group shadow-xl backdrop-blur-sm"
+          className="mt-4 xs:mt-6 sm:mt-10 md:mt-12 p-2 xs:p-3 sm:p-4 rounded-full 
+                   bg-[#262626]/80 border border-[#E9FC87]/20 hover:bg-[#E9FC87]/10 
+                   transition-all duration-300 group shadow-xl backdrop-blur-sm
+                   focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/50 focus:ring-offset-2 
+                   focus:ring-offset-[#262626]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: [0, 1, 1],
@@ -391,9 +404,10 @@ export default function Hero3() {
               repeatDelay: 1
             }
           }}
-          aria-label="Deslizar hacia abajo"
+          aria-label="Deslizar hacia la siguiente sección"
+          tabIndex={0}
         >
-          <ChevronDown className="w-6 h-6 text-[#F2F2F2] group-hover:text-[#E9FC87] transition-colors duration-300" />
+          <ChevronDown className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-[#F2F2F2] group-hover:text-[#E9FC87] transition-colors duration-300" aria-hidden="true" />
         </motion.button>
       </motion.div>
       

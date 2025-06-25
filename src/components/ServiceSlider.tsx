@@ -137,9 +137,9 @@ export default function ServiceSlider() {
   };
 
   return (
-    <section className="relative w-full py-20 overflow-hidden">
+    <section className="relative w-full py-20 overflow-hidden" id="servicios" aria-labelledby="servicios-heading" role="region">
       {/* Fondo con gradientes sutiles (mejorado para cubrir toda la pantalla) */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#1a1a1a] via-[#212121] to-[#1a1a1a]" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-[#E9FC87]/3 blur-[120px]" />
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-[#BCB4FF]/3 blur-[100px]" />
@@ -149,7 +149,7 @@ export default function ServiceSlider() {
       <FloatingElements />
       
       {/* Overlay sutil para evitar conflicto visual */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/90 via-transparent to-[#1a1a1a]/90 z-[1]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/90 via-transparent to-[#1a1a1a]/90 z-[1]" aria-hidden="true"></div>
       
       <div className="container relative z-10 mx-auto px-4 max-w-7xl">
         {/* Encabezado de sección */}
@@ -163,7 +163,7 @@ export default function ServiceSlider() {
           <div className="inline-block px-5 py-2 mb-6 rounded-full bg-[#262626]/90 border border-[#E9FC87]/30 text-[#F2F2F2]/90 text-xs font-semibold tracking-widest uppercase shadow-xl backdrop-blur-sm">
             Servicios
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-[#F2F2F2] mb-6 font-mundial">
+          <h2 id="servicios-heading" className="text-4xl md:text-6xl font-bold text-[#F2F2F2] mb-6 font-mundial">
             Todo tu marketing <span className="text-[#E9FC87]">bajo un mismo techo</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-[#F2F2F2]/80 mb-8">
@@ -195,14 +195,23 @@ export default function ServiceSlider() {
                 pagination: 'splide__pagination service-dots',
                 page: 'splide__pagination__page service-dot',
               },
+              a11y: {
+                prev: 'Servicio anterior',
+                next: 'Siguiente servicio',
+                first: 'Ir al primer servicio',
+                last: 'Ir al último servicio',
+                slideX: 'Ir a servicio %s',
+                pageX: 'Ir a página %s',
+              },
             }}
             className="relative z-10 service-splide"
-            aria-label="Servicios"
+            aria-label="Nuestros servicios"
+            role="region"
           >
             {serviceKeys.map((key) => {
               const S = services[key];
               return (
-                <SplideSlide key={key} aria-label={S.title}>
+                <SplideSlide key={key} aria-label={S.title} role="group">
                   <motion.div 
                     className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center h-full py-10 px-4 md:px-10"
                     initial={{ opacity: 0 }}
@@ -228,15 +237,26 @@ export default function ServiceSlider() {
                         transition={{ type: "spring", stiffness: 120, damping: 18 }}
                         className="bg-gradient-to-br from-[#262626] to-[#1a1a1a] rounded-2xl border border-[#E9FC87]/30 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm px-8 py-10 md:px-12 md:py-14 min-h-[280px] w-full max-w-lg mx-auto flex flex-col items-start gap-5 relative overflow-visible group transition-all duration-200"
                         tabIndex={0}
-                        aria-label={S.title}
+                        role="article"
+                        aria-labelledby={`service-title-${key}`}
+                        aria-describedby={`service-desc-${key}`}
+                        title={S.title}
+                        aria-roledescription="tarjeta de servicio"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            // Proporciona alguna acción aquí si es necesario
+                            e.preventDefault();
+                          }
+                        }}
+                        className="bg-gradient-to-br from-[#262626] to-[#1a1a1a] rounded-2xl border border-[#E9FC87]/30 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm px-8 py-10 md:px-12 md:py-14 min-h-[280px] w-full max-w-lg mx-auto flex flex-col items-start gap-5 relative overflow-visible group transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 focus:border-[#E9FC87]"
                       >
-                        <div className="p-3 rounded-xl bg-[#262626]/70 border border-[#E9FC87]/10 mb-2 backdrop-blur-md">
+                        <div className="p-3 rounded-xl bg-[#262626]/70 border border-[#E9FC87]/10 mb-2 backdrop-blur-md" aria-hidden="true">
                           <S.icon className="w-12 h-12 text-[#E9FC87]" aria-hidden="true" />
                         </div>
-                        <h3 className="text-2xl md:text-4xl font-bold text-[#F2F2F2] mb-3 font-mundial">
+                        <h3 id={`service-title-${key}`} className="text-2xl md:text-4xl font-bold text-[#F2F2F2] mb-3 font-mundial">
                           {S.title}
                         </h3>
-                        <p className="text-base md:text-lg text-[#F2F2F2]/80">
+                        <p id={`service-desc-${key}`} className="text-base md:text-lg text-[#F2F2F2]/80">
                           {S.desc}
                         </p>
                       </motion.div>
@@ -280,12 +300,15 @@ export default function ServiceSlider() {
               onClick={goPrev}
               className="p-4 rounded-full bg-[#262626]/90 border border-[#E9FC87]/30 text-[#F2F2F2] 
                       hover:bg-[#E9FC87]/20 transition-all duration-300 shadow-xl backdrop-blur-sm pointer-events-auto
-                      ml-2 md:ml-10 lg:ml-20 relative z-30"
+                      ml-2 md:ml-10 lg:ml-20 relative z-30
+                      focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/50"
               whileHover={{ scale: 1.15, x: -5, boxShadow: "0 0 20px rgba(233, 252, 135, 0.3)" }}
               whileTap={{ scale: 0.92 }}
               aria-label="Servicio anterior"
+              tabIndex={0}
+              role="button"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
             </motion.button>
@@ -293,12 +316,15 @@ export default function ServiceSlider() {
               onClick={goNext}
               className="p-4 rounded-full bg-[#262626]/90 border border-[#E9FC87]/30 text-[#F2F2F2] 
                       hover:bg-[#E9FC87]/20 transition-all duration-300 shadow-xl backdrop-blur-sm pointer-events-auto
-                      mr-2 md:mr-10 lg:mr-20 relative z-30"
+                      mr-2 md:mr-10 lg:mr-20 relative z-30
+                      focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/50"
               whileHover={{ scale: 1.15, x: 5, boxShadow: "0 0 20px rgba(233, 252, 135, 0.3)" }}
               whileTap={{ scale: 0.92 }}
               aria-label="Siguiente servicio"
+              tabIndex={0}
+              role="button"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </motion.button>
@@ -329,6 +355,15 @@ export default function ServiceSlider() {
         }
         .service-splide .splide__pagination__page:hover {
           background: rgba(233, 252, 135, 0.5);
+        }
+        .service-splide .splide__pagination__page:focus-visible {
+          outline: 2px solid rgba(233, 252, 135, 0.7);
+          outline-offset: 2px;
+        }
+        /* Mejoras de accesibilidad - Añade un indicador de foco visible */
+        *:focus-visible {
+          outline: 2px solid rgba(233, 252, 135, 0.7) !important;
+          outline-offset: 2px;
         }
       `}</style>
     </section>
