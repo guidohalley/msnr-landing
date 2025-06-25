@@ -9,7 +9,6 @@ interface ServiceCardWithBorderProps {
   description: string;
   icon?: React.ReactNode;
   onClick?: () => void;
-  variant?: "subtle" | "default";
 }
 
 export function ServiceCardWithBorder({
@@ -17,19 +16,15 @@ export function ServiceCardWithBorder({
   description,
   icon,
   onClick,
-  variant = "subtle",
 }: ServiceCardWithBorderProps) {
   return (
     <StarBorder 
-      as="div" 
+      active={true}
+      size="md"
       className="w-full cursor-pointer"
-      color="#E9FC87"
-      hoverColor="#FFFFFF"
-      thickness={1}
-      variant={variant}
     >
       <motion.div
-        className="flex flex-col items-center p-4 text-center"
+        className="flex flex-col items-center p-4 text-center bg-gradient-to-b from-black to-gray-900 border border-gray-800 text-white rounded-lg"
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.2 }}
         onClick={onClick}
