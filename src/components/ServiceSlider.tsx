@@ -235,7 +235,7 @@ export default function ServiceSlider() {
                         onPointerMove={handlePointerMove}
                         onPointerLeave={handlePointerLeave}
                         transition={{ type: "spring", stiffness: 120, damping: 18 }}
-                        className="bg-gradient-to-br from-[#262626] to-[#1a1a1a] rounded-2xl border border-[#E9FC87]/30 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm px-8 py-10 md:px-12 md:py-14 min-h-[280px] w-full max-w-lg mx-auto flex flex-col items-start gap-5 relative overflow-visible group transition-all duration-200"
+                        className="bg-gradient-to-br from-[#262626] to-[#1a1a1a] rounded-2xl border border-[#E9FC87]/30 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm px-8 py-10 md:px-12 md:py-14 min-h-[280px] w-full max-w-lg mx-auto flex flex-col items-start gap-5 relative overflow-visible group transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 focus:border-[#E9FC87]"
                         tabIndex={0}
                         role="article"
                         aria-labelledby={`service-title-${key}`}
@@ -248,7 +248,6 @@ export default function ServiceSlider() {
                             e.preventDefault();
                           }
                         }}
-                        className="bg-gradient-to-br from-[#262626] to-[#1a1a1a] rounded-2xl border border-[#E9FC87]/30 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm px-8 py-10 md:px-12 md:py-14 min-h-[280px] w-full max-w-lg mx-auto flex flex-col items-start gap-5 relative overflow-visible group transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 focus:border-[#E9FC87]"
                       >
                         <div className="p-3 rounded-xl bg-[#262626]/70 border border-[#E9FC87]/10 mb-2 backdrop-blur-md" aria-hidden="true">
                           <S.icon className="w-12 h-12 text-[#E9FC87]" aria-hidden="true" />
