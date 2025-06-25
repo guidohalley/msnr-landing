@@ -211,7 +211,7 @@ export default function ServiceSlider() {
             {serviceKeys.map((key) => {
               const S = services[key];
               return (
-                <SplideSlide key={key} aria-label={S.title} role="group">
+                <SplideSlide key={key} aria-label={S.title}>
                   <motion.div 
                     className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center h-full py-10 px-4 md:px-10"
                     initial={{ opacity: 0 }}

@@ -108,21 +108,45 @@ body {
   opacity: 1 !important;
 }
 
-/* Skip link - menos dependencia de componentes */
-.skip-link {
-  position: fixed;
-  top: 2px;
-  left: 2px;
-  z-index: 9999;
-  background-color: #E9FC87;
-  color: #262626;
-  padding: 8px 16px;
-  font-weight: 600;
-  border-radius: 4px;
-  transform: translateY(-120%);
-  transition: transform 0.3s;
+/* Clases de alto contraste para textos con diferentes opacidades */
+.text-high-contrast-dark {
+  color: #F2F2F2 !important; /* Texto claro de alto contraste en fondos oscuros */
 }
 
-.skip-link:focus {
-  transform: translateY(0);
+.text-high-contrast-light {
+  color: #262626 !important; /* Texto oscuro de alto contraste en fondos claros */
 }
+
+.high-contrast-accent {
+  color: #E9FC87 !important; /* Color acento con buen contraste */
+}
+
+.high-contrast-link {
+  color: #BCB4FF !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Clases para elementos semánticos con contrastes óptimos */
+.button-high-contrast {
+  background-color: #E9FC87 !important;
+  color: #262626 !important;
+  border: 2px solid transparent;
+}
+
+.button-high-contrast:hover,
+.button-high-contrast:focus {
+  background-color: #F2F2F2 !important;
+  border-color: #E9FC87 !important;
+}
+
+/* Mejoras de fondos para mejor contraste */
+.bg-high-contrast-dark {
+  background-color: #1a1a1a !important;
+}
+
+.bg-high-contrast-light {
+  background-color: #F2F2F2 !important;
+}
+
+/* Ajustes para elementos con opacidad que necesitan mejor contraste */
