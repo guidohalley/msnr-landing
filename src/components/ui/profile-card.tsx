@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Service } from "@/lib/whatsapp";
 import { getSpecialistByService } from "@/data/specialists";
+import { StarBorder } from "@/components/ui/star-border";
 
 export type ProfileImageType = "initials" | "avatar";
 
@@ -35,20 +36,22 @@ export function ProfileCard({
   const specialist = specialists[specialistIndex] || specialists[0];
 
   return (
-    <motion.div
-      initial={animate ? { opacity: 0, y: 10 } : false}
-      animate={animate ? { opacity: 1, y: 0 } : false}
-      transition={{ duration: 0.3 }}
-      className={cn(
-        "p-3 bg-[#262626]/50 border border-[#E9FC87]/10 rounded-xl backdrop-blur-sm",
-        "hover:border-[#E9FC87]/20 transition-all duration-300",
-        onClick && "cursor-pointer",
-        className
-      )}
-      onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <StarBorder active={isHovered} size="md">
+      <motion.div
+        initial={animate ? { opacity: 0, y: 10 } : false}
+        animate={animate ? { opacity: 1, y: 0 } : false}
+        transition={{ duration: 0.3 }}
+        className={cn(
+          "p-3 bg-[#262626]/50 border border-[#E9FC87]/10 rounded-xl backdrop-blur-sm",
+          "hover:border-[#E9FC87]/20 transition-all duration-300",
+          onClick && "cursor-pointer",
+          className
+        )}
+        data-specialist-id={specialist.id}
+        onClick={onClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
       <div className="flex items-center gap-3">
         <motion.div 
           animate={{ 
@@ -120,5 +123,6 @@ export function ProfileCard({
         )}
       </div>
     </motion.div>
+    </StarBorder>
   );
 }

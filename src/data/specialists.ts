@@ -96,29 +96,23 @@ export const specialists: Specialist[] = [
     id: "gimena-rippel",
     name: "Gimena Rippel",
     initials: "GR",
-    role: "Coordinación de Servicios",
-    title: "Coordinadora de Proyectos Web",
-    message: "Especialista en desarrollo web y consultoría",
+    role: "Coordinación General",
+    title: "Coordinadora de Proyectos",
+    message: "Coordinadora general de Misionary",
     colorGradient: "from-[#E9FC87]/20 to-[#BCB4FF]/20",
     whatsappNumber: "5493764123717",
-    services: ["websites", "other"],
+    services: ["websites", "web", "mkt", "design", "audiovisual", "campaigns", "other"],
   },
 ];
 
-// Función auxiliar para obtener especialistas según el servicio
+// TEMPORALMENTE: Función auxiliar para obtener especialistas según el servicio (siempre devuelve a Gimena)
 export function getSpecialistByService(service: Service): Specialist[] {
-  const serviceSpecialists = specialists.filter(s => s.services.includes(service));
-  
-  if (serviceSpecialists.length === 0) {
-    // Fallback a Gimena Rippel (para otros servicios)
-    return [specialists.find(s => s.id === "gimena-rippel")!];
-  }
-  
-  return serviceSpecialists;
+  // Temporalmente, siempre devuelve a Gimena Rippel para todos los servicios
+  const gimena = specialists.find(s => s.id === "gimena-rippel")!;
+  return [gimena];
 }
 
 // Función para obtener el primer especialista (para compatibilidad con código existente)
 export function getFirstSpecialistByService(service: Service): Specialist {
-  const serviceSpecialists = getSpecialistByService(service);
-  return serviceSpecialists[0];
+  return getSpecialistByService(service)[0];
 }

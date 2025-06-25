@@ -163,12 +163,12 @@ export function ServiceFilterModal() {
                     <span className="text-[#262626]">Conectando...</span>
                   </motion.div>
                 ) : (
-                  "Contactar especialista"
+                  "Contactar a nuestra coordinadora"
                 )}
               </Button>
             ) : (
               <div className="text-center text-sm text-[#E9FC87]">
-                Selecciona un especialista a continuación:
+                Te conectaremos con nuestra coordinadora:
               </div>
             )}
             
@@ -195,6 +195,13 @@ export function ServiceFilterModal() {
                         animate={false}
                         className="relative overflow-hidden cursor-pointer hover:bg-[#363636]/50 transition-colors duration-200"
                         onClick={() => {
+                          // Efecto de clic visual
+                          const profileCard = document.querySelector(`[data-specialist-id="${specialist.id}"]`);
+                          if (profileCard) {
+                            profileCard.classList.add("scale-95");
+                            setTimeout(() => profileCard.classList.remove("scale-95"), 200);
+                          }
+                          
                           setIsRedirecting(true);
                           setTimeout(() => {
                             setShowSuccessIndicator(true);

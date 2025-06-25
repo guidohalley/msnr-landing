@@ -15,6 +15,9 @@ export const serviceLabels: Record<Service, string> = {
 
 // Función para ir a WhatsApp que será llamada desde la UI
 export function goToWhatsApp(service: Service, specialistIndex: number = 0) {
+  // NOTA TEMPORAL: Actualmente todos los servicios están dirigidos a Gimena Rippel
+  // hasta nuevo aviso. La lógica de especialistas por servicio está temporalmente desactivada.
+  
   // Importamos la función de especialistas aquí en lugar de en el top-level
   // para evitar problemas de referencias circulares
   const { getSpecialistByService } = require("@/data/specialists");
