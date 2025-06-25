@@ -15,11 +15,13 @@ La familia **Mundial** se usa en todas sus variables (Thin, Light, Regular, Bold
 **Servicios y actividades principales**
 Misionary ofrece un servicio integral "todo tu marketing bajo un mismo techo":
 
-* Estrategia y **Gestión de Redes Sociales** (planificación, redacción, interacción y métricas).
-* **Diseño Gráfico** (piezas para RR.SS., adaptación multiformato, optimización de logotipos y manuales de marca).
-* **Producción Audiovisual** (fotografía, video, animaciones).
-* **Campañas Publicitarias** en Meta Ads y Google, con seguimiento de resultados.
-* **Desarrollo de sitios y sistemas web**, consultorías, automatización de procesos, SEO y analítica (GA, GSC).
+* **Marketing Digital** / **Gestión de Redes Sociales** (planificación, redacción, interacción y métricas) - _Responsable: Jimena Romero_
+* **Diseño Gráfico e Identidad Visual** (logotipos, manuales de marca, piezas para RR.SS., adaptación multiformato) - _Responsables: Nicole Marinoff e Iván Gomez_
+* **Producción Audiovisual** (fotografía, video, animaciones) - _Responsables: Lucas Cabrera Milde y Evelyn Lopez Chapedi_
+* **Campañas Publicitarias** en Meta Ads y Google, con seguimiento de resultados - _Responsable: Santiago Feltan_
+* **Desarrollo de sistemas web complejos**, consultorías, automatización de procesos, SEO y analítica - _Responsable: Guido Halley_
+* **Crear una página web** (sitios web para empresas y emprendedores) - _Responsable: Gimena Rippel_
+* **Otros servicios** (consultoría general y propuestas personalizadas) - _Responsable: Gimena Rippel_
 
 **Metodología de trabajo**
 Funciona por suscripción mensual: se define un plan a medida, se asigna un equipo exclusivo y se gestionan las tareas en Notion con acceso 24/7 para el cliente. La comunicación es de lunes a viernes, 9-18 h (AR), y las entregas se revisan hasta la aprobación final. El equipo abarca Social/Paid Media, Diseño, Desarrollo, Producción Audiovisual y Community Management, garantizando revisiones ilimitadas y foco en resultados.&#x20;
@@ -291,3 +293,94 @@ Al implementar estos lineamientos específicos en todos los componentes, asegura
 - Mantener una guía de testeo específica para verificar la coherencia visual en cada implementación
 
 Este prompt debe usarse como complemento a la guía de estilo principal para garantizar coherencia visual y técnica en todos los componentes de la landing page de MSNR.
+
+**ESPECIALIZACIÓN DE SERVICIOS Y CONTACTOS - JUNIO 2025**
+
+Misionary ha implementado un sistema de filtrado de servicios para direccionar a los clientes con los especialistas adecuados. Esta estructura debe respetarse en todos los puntos de contacto del sitio.
+
+**1. Áreas de servicio y especialistas responsables:**
+- **Sistemas Web / Páginas web**: Guido Halley (+54 9 376 460-9701)
+- **Marketing Digital**: Jimena Romero (+54 9 376 418-9737)
+- **Diseño Gráfico**: Nicole Marinoff (+54 9 376 439-1353)
+- **Identidad Visual**: Nicole Marinoff (+54 9 376 439-1353)
+- **Producción Audiovisual**: Lucas Cabrera Milde (+54 9 376 439-1353)
+- **Campañas Publicitarias**: Santiago Feltan (+54 9 376 460-4322)
+- **Otros Servicios**: Santiago Feltan (+54 9 376 460-4322)
+
+**2. Implementación técnica del filtrado de servicios:**
+- El componente `ServiceFilterModal` implementa la interfaz de selección de servicios
+- Cada servicio está vinculado a un especialista específico con su número de WhatsApp
+- Los mensajes precargados incluyen el servicio seleccionado y el nombre del especialista
+- La interfaz utiliza iconos específicos de Lucide-React para cada servicio:
+  - Globe: Sistemas Web
+  - Smartphone: Marketing Digital
+  - PenTool: Diseño Gráfico
+  - Palette: Identidad Visual
+  - Video: Producción Audiovisual
+  - Megaphone: Campañas Publicitarias
+  - MessageSquare: Otros servicios
+
+**3. Lineamientos de comunicación por especialidad:**
+- Cada especialista representa el área de su expertise
+- Los mensajes deben mantener coherencia con el servicio seleccionado
+- El tono de comunicación debe adaptarse a cada especialidad manteniendo la esencia disruptiva de la marca
+
+**4. Integración con canales de contacto:**
+- El modal de filtrado reemplaza los enlaces directos a WhatsApp
+- Todos los CTA de contacto deben usar el componente `ServiceFilterModal`
+- La experiencia de usuario prioriza la elección adecuada del servicio antes de la comunicación
+
+Cualquier modificación a esta estructura debe ser aprobada por el equipo directivo de Misionary para mantener la coherencia en la experiencia del cliente y la organización interna de comunicaciones.
+
+**5. Mantenimiento y actualización del sistema de filtrado:**
+
+**Actualización de información de contacto:**
+```typescript
+// En el archivo src/lib/whatsapp.ts
+export type Service = "web" | "mkt" | "identity" | "design" | "audiovisual" | "campaigns" | "other";
+
+export function goToWhatsApp(service: Service) {
+  const numbers = {
+    web: "5493764609701", // Guido Halley
+    mkt: "5493764189737", // Jimena Romero
+    identity: "5493764391353", // Nicole Marinoff
+    design: "5493764391353", // Nicole Marinoff
+    audiovisual: "5493764391353", // Lucas Cabrera Milde (mismo número que Nicole)
+    campaigns: "5493764604322", // Santiago Feltan
+    other: "5493764604322", // Santiago Feltan
+  };
+  
+  const labels = {
+    web: "Sistemas Web / Página web",
+    mkt: "Marketing Digital",
+    identity: "Identidad Visual",
+    design: "Diseño Gráfico",
+    audiovisual: "Producción Audiovisual",
+    campaigns: "Campañas Publicitarias",
+    other: "otro servicio",
+  };
+  
+  const contacts = {
+    web: "con Guido Halley",
+    mkt: "con Jimena Romero",
+    identity: "con Nicole Marinoff",
+    design: "con Nicole Marinoff",
+    audiovisual: "con Lucas Cabrera Milde",
+    campaigns: "con Santiago Feltan",
+    other: "con nuestro equipo",
+  };
+}
+```
+
+**Consideraciones para futuras expansiones:**
+- Si se añaden nuevos servicios, asegurarse de actualizar el tipo `Service`
+- Mantener la coherencia visual con iconos apropiados de la misma familia (Lucide-React)
+- Respetar el límite espacial del modal (máximo recomendado: 8 opciones)
+- Para más de 8 opciones, considerar implementar categorías anidadas
+- Las imágenes de perfil de los especialistas podrían añadirse en una futura iteración
+
+**6. Análisis y métricas:**
+- El sistema puede expandirse para incluir seguimiento de qué servicios son más solicitados
+- Implementar eventos de analytics para medir conversiones por especialista
+- Considerar A/B testing para evaluar variaciones del flujo de contacto
+- Recopilar feedback de los usuarios para mejorar la experiencia

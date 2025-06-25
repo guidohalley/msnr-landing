@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useServiceFilter } from "@/hooks/use-service-filter";
 import { goToWhatsApp, Service } from "@/lib/whatsapp";
 import { FormItem } from "@/components/ui/form-item";
 import { RadioGroup } from "@/components/ui/radio-group";
+import { ProfileCard } from "@/components/ui/profile-card";
+import { getSpecialistByService } from "@/data/specialists";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { 
   Dialog, 
@@ -21,28 +24,46 @@ import {
   Palette, 
   PenTool, 
   Video, 
-  Megaphone
+  Megaphone,
+  CheckCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function ServiceFilterModal() {
   const { isOpen, selectedService, closeServiceFilter, selectService } = useServiceFilter();
   const [isRedirecting, setIsRedirecting] = useState(false);
+  const [showSuccessIndicator, setShowSuccessIndicator] = useState(false);
 
+  // Resetear estados cuando se cierra el modal
+  useEffect(() => {
+    if (!isOpen) {
+      setIsRedirecting(false);
+      setShowSuccessIndicator(false);
+    }
+  }, [isOpen]);
+
+  // Esta función solo se usa cuando hay un solo especialista y
+  // el usuario hace clic en el botón "Contactar especialista"
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsRedirecting(true);
     
-    // Agregar un pequeño retraso para mostrar el estado de carga
+    // Mostrar feedback visual de éxito
     setTimeout(() => {
-      goToWhatsApp(selectedService);
+      setShowSuccessIndicator(true);
       
-      // Resetear estado después de redirigir
+      // Redirigir a WhatsApp después de mostrar el indicador de éxito
       setTimeout(() => {
-        setIsRedirecting(false);
-        closeServiceFilter();
-      }, 500);
-    }, 800);
+        goToWhatsApp(selectedService);
+        
+        // Resetear estado después de redirigir
+        setTimeout(() => {
+          setIsRedirecting(false);
+          setShowSuccessIndicator(false);
+          closeServiceFilter();
+        }, 500);
+      }, 400);
+    }, 600);
   };
 
   return (
@@ -65,53 +86,54 @@ export function ServiceFilterModal() {
             defaultValue={selectedService}
             value={selectedService}
             onValueChange={(value) => selectService(value as Service)}
-            className="grid gap-3 max-h-[50vh] overflow-y-auto pr-2 styled-scrollbar"
+            className="grid gap-3 max-h-[45vh] overflow-y-auto pr-2 styled-scrollbar"
           >
+            
             <FormItem
-              value="web"
-              label="Sistemas Web"
+              value="websites"
+              label="Quiero una página web"
               icon={Globe}
-              checked={selectedService === "web"}
+              checked={selectedService === "websites"}
               onChange={(value) => selectService(value as Service)}
             />
             <FormItem
               value="mkt"
-              label="Marketing Digital"
+              label="Quiero administrar mis redes sociales"
               icon={Smartphone}
               checked={selectedService === "mkt"}
               onChange={(value) => selectService(value as Service)}
             />
             <FormItem
               value="design"
-              label="Diseño Gráfico"
+              label="Quiero un logo e identidad visual"
               icon={PenTool}
               checked={selectedService === "design"}
               onChange={(value) => selectService(value as Service)}
             />
             <FormItem
-              value="identity"
-              label="Identidad Visual"
-              icon={Palette}
-              checked={selectedService === "identity"}
-              onChange={(value) => selectService(value as Service)}
-            />
-            <FormItem
               value="audiovisual"
-              label="Producción Audiovisual"
+              label="Quiero producir videos para mi empresa"
               icon={Video}
               checked={selectedService === "audiovisual"}
               onChange={(value) => selectService(value as Service)}
             />
             <FormItem
+              value="web"
+              label="Quiero un Sistema Web"
+              icon={Globe}
+              checked={selectedService === "web"}
+              onChange={(value) => selectService(value as Service)}
+            />
+            <FormItem
               value="campaigns"
-              label="Campañas Publicitarias"
+              label="Quiero publicitar mi empresa"
               icon={Megaphone}
               checked={selectedService === "campaigns"}
               onChange={(value) => selectService(value as Service)}
             />
             <FormItem
               value="other"
-              label="Otro servicio"
+              label="Quiero consultar por otros servicios"
               icon={MessageSquare}
               checked={selectedService === "other"}
               onChange={(value) => selectService(value as Service)}
@@ -119,36 +141,99 @@ export function ServiceFilterModal() {
           </RadioGroup>
           
           <div className="flex flex-col gap-4">
-            <Button
-              type="submit"
-              disabled={isRedirecting}
-              isLoading={isRedirecting}
-              className={cn(
-                "w-full h-14 font-medium transition-all",
-                "bg-gradient-to-r from-[#E9FC87] to-[#c3d871]",
-                "hover:shadow-lg hover:shadow-[#E9FC87]/20"
-              )}
-            >
-              Contactar especialista
-            </Button>
+            {getSpecialistByService(selectedService).length === 1 ? (
+              <Button
+                type="submit"
+                disabled={isRedirecting}
+                isLoading={isRedirecting}
+                className={cn(
+                  "w-full h-14 font-medium transition-all",
+                  "bg-gradient-to-r from-[#E9FC87] to-[#c3d871]",
+                  "hover:shadow-lg hover:shadow-[#E9FC87]/20",
+                  showSuccessIndicator && "bg-[#E9FC87]"
+                )}
+              >
+                {showSuccessIndicator ? (
+                  <motion.div
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    className="flex items-center gap-2"
+                  >
+                    <CheckCircle size={18} className="text-[#262626]" />
+                    <span className="text-[#262626]">Conectando...</span>
+                  </motion.div>
+                ) : (
+                  "Contactar especialista"
+                )}
+              </Button>
+            ) : (
+              <div className="text-center text-sm text-[#E9FC87]">
+                Selecciona un especialista a continuación:
+              </div>
+            )}
             
-            <div className="text-xs text-center text-[#F2F2F2]/70">
-              Te redirigiremos a WhatsApp con el especialista en {selectedService === "web" ? "Sistemas Web" : 
-                selectedService === "mkt" ? "Marketing Digital" :
-                selectedService === "design" ? "Diseño Gráfico" :
-                selectedService === "identity" ? "Identidad Visual" :
-                selectedService === "audiovisual" ? "Producción Audiovisual" :
-                selectedService === "campaigns" ? "Campañas Publicitarias" : "otros servicios"}
-            </div>
+            <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedService}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="mt-2"
+            >
+              {/* Especialistas para el servicio seleccionado */}
+              {(() => {
+                const specialists = getSpecialistByService(selectedService);
+                
+                return (
+                  <div className="space-y-2">
+                    {specialists.map((specialist, index) => (
+                      <ProfileCard 
+                        key={specialist.id}
+                        service={selectedService}
+                        specialistIndex={index}
+                        animate={false}
+                        className="relative overflow-hidden cursor-pointer hover:bg-[#363636]/50 transition-colors duration-200"
+                        onClick={() => {
+                          setIsRedirecting(true);
+                          setTimeout(() => {
+                            setShowSuccessIndicator(true);
+                            setTimeout(() => {
+                              goToWhatsApp(selectedService, index);
+                              setTimeout(() => {
+                                setIsRedirecting(false);
+                                setShowSuccessIndicator(false);
+                                closeServiceFilter();
+                              }, 500);
+                            }, 400);
+                          }, 600);
+                        }}
+                      />
+                    ))}
+                  </div>
+                );
+              })()}
+
+              {/* Indicador de conexión segura */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="flex items-center gap-2 mt-2 text-xs text-[#E9FC87]/70 px-2"
+              >
+                <CheckCircle size={12} />
+                <span>Conexión segura por WhatsApp</span>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
           </div>
         </form>
         
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-1 bg-[#E9FC87]/30" 
-          style={{ 
-            width: isRedirecting ? "100%" : "0%",
-            transition: "width 0.8s ease-in-out" 
-          }}
+        <motion.div 
+          className="absolute bottom-0 left-0 right-0 h-1 bg-[#E9FC87]/30"
+          initial={{ width: "0%" }}
+          animate={{ width: isRedirecting ? "100%" : "0%" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
         />
       </DialogContent>
     </Dialog>

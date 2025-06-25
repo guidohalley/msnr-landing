@@ -1,40 +1,36 @@
 "use client";
 
-export type Service = "web" | "mkt" | "identity" | "design" | "audiovisual" | "campaigns" | "other";
+export type Service = "web" | "mkt" | "design" | "audiovisual" | "campaigns" | "websites" | "other";
 
-export function goToWhatsApp(service: Service) {
-  const numbers = {
-    web: "5493764609701", // Guido Halley
-    mkt: "5493764189737", // Jimena Romero
-    identity: "5493764391353", // Nicole Marinoff
-    design: "5493764391353", // Nicole Marinoff
-    audiovisual: "5493764391353", // Lucas Cabrera Milde (mismo número que Nicole)
-    campaigns: "5493764604322", // Santiago Feltan
-    other: "5493764604322", // Santiago Feltan
-  };
-  
-  const labels = {
-    web: "Sistemas Web / Página web",
-    mkt: "Marketing Digital",
-    identity: "Identidad Visual",
-    design: "Diseño Gráfico",
-    audiovisual: "Producción Audiovisual",
-    campaigns: "Campañas Publicitarias",
-    other: "otro servicio",
-  };
-  
-  const contacts = {
-    web: "con Guido Halley",
-    mkt: "con Jimena Romero",
-    identity: "con Nicole Marinoff",
-    design: "con Nicole Marinoff",
-    audiovisual: "con Lucas Cabrera Milde",
-    campaigns: "con Santiago Feltan",
-    other: "con nuestro equipo",
-  };
+// Las etiquetas para cada servicio
+export const serviceLabels: Record<Service, string> = {
+  web: "Sistemas Web",
+  websites: "Crear una página web",
+  mkt: "Marketing Digital",
+  design: "Diseño Gráfico e Identidad Visual",
+  audiovisual: "Producción Audiovisual",
+  campaigns: "Campañas Publicitarias",
+  other: "consultar por otros servicios de Misionary",
+};
 
+// Función para ir a WhatsApp que será llamada desde la UI
+export function goToWhatsApp(service: Service, specialistIndex: number = 0) {
+  // Importamos la función de especialistas aquí en lugar de en el top-level
+  // para evitar problemas de referencias circulares
+  const { getSpecialistByService } = require("@/data/specialists");
+  
+  // Obtenemos los datos de especialistas para este servicio
+  const specialists = getSpecialistByService(service);
+  
+  // Seleccionamos el especialista según el índice proporcionado
+  // Si el índice está fuera de rango, usamos el primero
+  const specialist = specialists[specialistIndex] || specialists[0];
+  
+  // Construimos el mensaje personalizado
   const text = encodeURIComponent(
-    `Hola, vengo desde misionary.com y me interesa ${labels[service]} ${contacts[service]}.`
+    `Hola, vengo desde misionary.com y me interesa ${serviceLabels[service]} con ${specialist.name}.`
   );
-  window.open(`https://wa.me/${numbers[service]}?text=${text}`, "_blank");
+  
+  // Abrimos WhatsApp en una nueva pestaña
+  window.open(`https://wa.me/${specialist.whatsappNumber}?text=${text}`, "_blank");
 }
