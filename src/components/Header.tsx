@@ -4,11 +4,11 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { MessageCircle as WhatsappIcon } from "lucide-react";
-import gsap from "gsap";
 import { useRef, useEffect, useState } from "react";
+import { useServiceFilter } from "@/hooks/use-service-filter";
 
 export default function Header() {
-  const whatsappBtnRef = useRef<HTMLAnchorElement>(null);
+  const { openServiceFilter } = useServiceFilter();
   const headerRef = useRef<HTMLElement>(null);
 
   // Estado para controlar la transparencia del header basado en scroll
@@ -19,20 +19,7 @@ export default function Header() {
   const headerOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   useEffect(() => {
-    // Efecto pulsante para el botón de WhatsApp
-    if (whatsappBtnRef.current) {
-      gsap.fromTo(
-        whatsappBtnRef.current,
-        { boxShadow: "0 0 0 0 #25D366" },
-        {
-          boxShadow: "0 0 16px 4px #25D36680",
-          repeat: -1,
-          yoyo: true,
-          duration: 1.2,
-          ease: "power1.inOut",
-        }
-      );
-    }
+    // Ya no necesitamos el efecto pulsante, ya que utilizaremos el modal
 
     // Manejo del scroll para la transparencia y visibilidad del header
     const handleScroll = () => {
@@ -108,12 +95,10 @@ export default function Header() {
             </a>
           </li>
           <li role="none">
-            <motion.a
-              ref={whatsappBtnRef}
-              href="https://wa.me/5493764609701"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center font-mundial bg-[#25D366] text-[#262626] font-bold px-4 py-2 rounded-full shadow-lg hover:bg-[#128C7E] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 focus-visible:ring-2 focus-visible:ring-[#E9FC87]/60 transition-all duration-300 relative overflow-hidden"
+            <motion.button
+              type="button"
+              onClick={openServiceFilter}
+              className="flex items-center font-mundial bg-[#E9FC87] text-[#262626] font-bold px-4 py-2 rounded-full shadow-lg hover:bg-[#DDED7E] focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 focus-visible:ring-2 focus-visible:ring-[#E9FC87]/60 transition-all duration-300 relative overflow-hidden"
               whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.97 }}
               aria-label="Contactar por WhatsApp"
@@ -122,14 +107,14 @@ export default function Header() {
               <span
                 className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
-                  boxShadow: "0 0 24px 4px #25D36655",
+                  boxShadow: "0 0 24px 4px #E9FC8755",
                   opacity: 0.5,
                 }}
                 aria-hidden="true"
               />
               <WhatsappIcon className="w-5 h-5 mr-2" aria-hidden="true" />
               <span>WhatsApp</span>
-            </motion.a>
+            </motion.button>
           </li>
         </ul>
       </nav>

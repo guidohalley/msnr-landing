@@ -113,15 +113,15 @@ export default function StatusTable() {
               Si tu web no aparece aquí, consultanos por WhatsApp y te la sumamos en minutos.
             </p>
           </div>
-          <Link
-            href="https://wa.me/5493764609701"
+          <a
+            href="https://wa.me/5493764609701?text=Hola%2C%20vengo%20desde%20misionary.com%20y%20me%20interesa%20una%20p%C3%A1gina%20web."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-2 px-10 py-4 rounded-full bg-neon text-dark font-mundial font-black border border-neon hover:bg-white hover:text-neon hover:shadow-[0_0_32px_0_#E9FC87AA] transition-all duration-300 text-lg text-center relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-neon focus:ring-offset-2"
           >
             <span className="relative z-10">Quiero un presupuesto</span>
             <span className="absolute inset-0 rounded-full bg-neon/30 blur-lg opacity-0 hover:opacity-40 transition-opacity duration-300" />
-          </Link>
+          </a>
         </div>
         {/* Columna derecha: tabla de sitios con efecto 3D tilt */}
         <motion.div
