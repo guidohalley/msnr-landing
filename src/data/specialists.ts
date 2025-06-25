@@ -106,7 +106,7 @@ export const specialists: Specialist[] = [
 ];
 
 // TEMPORALMENTE: Función auxiliar para obtener especialistas según el servicio (siempre devuelve a Gimena)
-export function getSpecialistByService(service: Service): Specialist[] {
+export function getSpecialistByService(_service: Service): Specialist[] {
   // Temporalmente, siempre devuelve a Gimena Rippel para todos los servicios
   const gimena = specialists.find(s => s.id === "gimena-rippel")!;
   return [gimena];

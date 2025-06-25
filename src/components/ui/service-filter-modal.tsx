@@ -21,7 +21,6 @@ import {
   Globe, 
   MessageSquare, 
   Smartphone, 
-  Palette, 
   PenTool, 
   Video, 
   Megaphone,
