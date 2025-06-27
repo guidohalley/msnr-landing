@@ -17,7 +17,7 @@ export default function MsnrImage({
   alt = "Logo Misionary",
   fill = false
 }: MsnrImageProps) {
-  // Si fill es true, usamos ese modo pero con dimensiones explícitas
+  // Si fill es true, usamos ese modo optimizado para rendimiento con prioridad de calidad en mobile
   if (fill) {
     return (
       <Image
@@ -26,12 +26,19 @@ export default function MsnrImage({
         fill={true}
         priority
         className={className}
-        sizes="(max-width: 768px) 100vw, 33vw"
+        sizes="(max-width: 640px) 85vw, (max-width: 768px) 75vw, (max-width: 1024px) 40vw, 33vw"
+        loading="eager"
+        fetchPriority="high"
+        style={{
+          objectFit: 'contain',
+          objectPosition: 'center'
+        }}
+        quality={90}
       />
     );
   }
   
-  // Si no, usamos dimensiones explícitas
+  // Si no, usamos dimensiones explícitas con optimizaciones
   return (
     <Image
       src="/msnr.svg"
@@ -40,7 +47,9 @@ export default function MsnrImage({
       height={height || 44}
       className={className}
       priority
-      sizes="(max-width: 768px) 100vw, 33vw"
+      sizes="(max-width: 640px) 44px, (max-width: 1024px) 44px, 44px"
+      loading="eager"
+      fetchPriority="high"
     />
   );
 }
