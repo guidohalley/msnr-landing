@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
+import MsnrImage from "./ui/msnr-image";
 import { 
   ChevronDown, 
   MapPin, 
@@ -237,11 +237,9 @@ export default function Hero3() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <Image
-          src="/msnr.svg"
-          alt="MISIONARY"
+        <MsnrImage
           fill
-          priority
+          alt="MISIONARY"
           className="object-contain"
         />
       </motion.div>
@@ -413,16 +411,14 @@ export default function Hero3() {
       
       {/* Logo flotante pequeño */}
       <motion.div
-        className="fixed top-6 left-6 z-30 w-12 h-12 opacity-0 md:opacity-100"
+        className="fixed top-5 left-5 z-30 w-10 h-10"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: hasScrolled ? 0.9 : 0, scale: hasScrolled ? 1 : 0.8 }}
         transition={{ duration: 0.3 }}
       >
-        <Image
-          src="/msnr.svg"
-          alt="MISIONARY"
+        <MsnrImage
           fill
-          priority
+          alt="MISIONARY"
           className="object-contain"
         />
       </motion.div>
