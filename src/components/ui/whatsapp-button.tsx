@@ -4,6 +4,7 @@ import React from "react";
 import { useServiceFilter } from "@/hooks/use-service-filter";
 import { cn } from "@/lib/utils";
 import { Service } from "@/lib/whatsapp";
+import { trackLinkClick } from "@/utils/analytics";
 
 interface WhatsAppButtonProps {
   service?: Service;
@@ -25,6 +26,8 @@ export function WhatsAppButton({
   const handleClick = () => {
     selectService(service);
     openServiceFilter();
+    // Trackear el clic en el botón de WhatsApp con el servicio seleccionado
+    trackLinkClick("WhatsApp Button", `whatsapp-${service}`, "cta");
   };
 
   const variants = {

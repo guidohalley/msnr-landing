@@ -203,19 +203,52 @@ export default function Hero3() {
   
   // Para detectar cuando el usuario scrollea
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [hasTrackedScroll, setHasTrackedScroll] = useState({
+    fifty: false,
+    seventyFive: false,
+    ninety: false
+  });
   
   useEffect(() => {
     const handleScroll = () => {
+      // Para el indicador visual de scroll
       if (window.scrollY > 10) {
         setHasScrolled(true);
       } else {
         setHasScrolled(false);
       }
+      
+      // Para el tracking de scroll depth
+      const scrollPercentage = Math.round(
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+      );
+      
+      // Trackear diferentes puntos de scroll una sola vez por sesión
+      if (scrollPercentage >= 50 && !hasTrackedScroll.fifty) {
+        import("@/utils/analytics").then(({ trackScroll }) => {
+          trackScroll(50);
+          setHasTrackedScroll(prev => ({ ...prev, fifty: true }));
+        });
+      }
+      
+      if (scrollPercentage >= 75 && !hasTrackedScroll.seventyFive) {
+        import("@/utils/analytics").then(({ trackScroll }) => {
+          trackScroll(75);
+          setHasTrackedScroll(prev => ({ ...prev, seventyFive: true }));
+        });
+      }
+      
+      if (scrollPercentage >= 90 && !hasTrackedScroll.ninety) {
+        import("@/utils/analytics").then(({ trackScroll }) => {
+          trackScroll(90);
+          setHasTrackedScroll(prev => ({ ...prev, ninety: true }));
+        });
+      }
     };
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasTrackedScroll]);
 
   // Función para hacer scroll a la siguiente sección
   const scrollToNextSection = () => {
