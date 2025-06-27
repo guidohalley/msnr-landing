@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
 
@@ -10,16 +10,17 @@ declare global {
     gtag: (
       command: 'config' | 'event' | 'set' | 'js',
       targetId: string,
-      options?: Record<string, any>
+      options?: Record<string, unknown>
     ) => void;
-    dataLayer: any[];
+    dataLayer: unknown[];
   }
 }
 
 // Tu ID de medición de GA4
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
 
-export default function pitGoogleAnalytics() {
+// Componente interno para manejar el seguimiento de pageview
+function PageViewTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -33,6 +34,15 @@ export default function pitGoogleAnalytics() {
       });
     }
   }, [pathname, searchParams]);
+
+  return null;
+}
+
+export default function GoogleAnalytics() {
+  // Ambiente de producción solamente
+  if (process.env.NODE_ENV !== 'production') {
+    return null;
+  }
 
   return (
     <>
@@ -58,6 +68,11 @@ export default function pitGoogleAnalytics() {
           `,
         }}
       />
+      
+      {/* Envuelto en Suspense para evitar errores con useSearchParams */}
+      <Suspense fallback={null}>
+        <PageViewTracker />
+      </Suspense>
     </>
   );
 }
