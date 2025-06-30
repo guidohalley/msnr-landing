@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { MessageCircle as WhatsappIcon } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { useServiceFilter } from "@/hooks/use-service-filter";
+import MsnrLogo from "./ui/msnr-logo";
 
 export default function Header() {
   const { openServiceFilter } = useServiceFilter();
@@ -51,26 +51,14 @@ export default function Header() {
           className="flex items-center gap-3 group font-mundial"
           aria-label="Inicio - Misionary"
         >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 22,
-              mass: 1.2,
-            }}
-            className="flex items-center"
-          >
-            <Image
-              src="/msnr.svg"
-              alt="Logo Misionary"
+          {/* Logo inlined para mejorar el LCP */}
+          <div className="flex items-center">
+            <MsnrLogo
               width={44}
               height={44}
-              className="w-11 h-11 drop-shadow-md"
-              priority
+              className="w-11 h-11"
             />
-          </motion.div>
+          </div>
           <span className="font-mundial font-extrabold text-xl text-[#ffffffd5] group-hover:text-[#E9FC87] transition-colors">
             MSNR®
           </span>

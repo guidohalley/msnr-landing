@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { trackFormSubmit } from "@/utils/analytics";
 
 const schema = z.object({
   name: z.string().min(2, "El nombre es requerido"),
@@ -32,8 +33,12 @@ export default function ContactForm() {
       if (res.ok) {
         setStatus("ok");
         reset();
+        // Registrar evento de formulario exitoso
+        trackFormSubmit("contact_form", true);
       } else {
         setStatus("error");
+        // Registrar evento de formulario fallido
+        trackFormSubmit("contact_form", false);
       }
     } catch {
       setStatus("error");

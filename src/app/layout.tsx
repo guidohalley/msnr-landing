@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 import OptimizedScripts from "@/components/OptimizedScripts";
 import StructuredData from "@/components/StructuredData";
 import { Providers } from "./providers";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -126,6 +127,8 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/MundialRegular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/MundialBold.otf" as="font" type="font/otf" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Google Analytics se carga de forma condicional solo en producción */}
+        <GoogleAnalytics />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground transition-colors`}

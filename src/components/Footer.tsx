@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, Variants } from "framer-motion";
-import Image from "next/image";
+import MsnrLogo from "./ui/msnr-logo";
 import { 
   Instagram, 
   Linkedin, 
@@ -115,11 +115,10 @@ export default function Footer() {
           >
             <div className="flex items-center justify-center md:justify-start">
               <div className="w-14 h-14 mr-4 relative" aria-hidden="true">
-                <Image 
-                  src="/msnr.svg" 
-                  alt="MSNR Logo" 
-                  fill 
-                  className="object-contain"
+                <MsnrLogo
+                  width={56}
+                  height={56}
+                  className="w-full h-full"
                 />
               </div>
               <div>

@@ -5,6 +5,7 @@ import { AcademicCapIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
+import { trackServiceView } from "@/utils/analytics";
 
 export const services = {
 	estrategia: {
@@ -50,6 +51,10 @@ export default function ServiceCard({ service }: { service: ServiceKey }) {
 			console.warn(`Servicio desconocido: ${service}`);
 			return;
 		}
+		
+		// Trackear la vista del servicio cuando el componente se muestra
+		trackServiceView(S.title);
+		
 		if (cardRef.current) {
 			gsap.fromTo(
 				cardRef.current,
