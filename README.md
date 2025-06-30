@@ -1,62 +1,71 @@
-# msnr-landing
+# 🚀 MISIONARY - Agencia de Marketing Digital
 
-Landing page profesional para agencia de marketing digital, construida con Next.js, TypeScript y Tailwind CSS.
+<div align="center">
 
-## Stack
-- Next.js App Router
-- TypeScript
-- Tailwind CSS (dark mode)
-- Framer Motion, Headless UI, React Hook Form, Zod, Heroicons, Lucide, Splide.js
+![MISIONARY Logo](https://misionary.com/msnr.svg)
 
-## Scripts
-- `npm run dev` — desarrollo
-- `npm run build` — build producción
-- `npm run lint` — linting
+**Transformamos tu visión digital en realidad**
 
-## Estructura
-- Componentes en `src/components/`
-- API mock en `src/app/api/contact/route.ts`
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmisionary.com&style=for-the-badge)](https://misionary.com)
+[![Location](https://img.shields.io/badge/📍_Posadas-Misiones,_Argentina-E9FC87?style=for-the-badge)](#)
+[![Rating](https://img.shields.io/badge/⭐_Rating-5.0%2F5_(25_reviews)-BCB4FF?style=for-the-badge)](#)
 
-## Accesibilidad y SEO
-- Semántica HTML, meta tags, contraste, alt en imágenes.
+</div>
 
 ---
 
-Reemplaza imágenes y textos de ejemplo por los definitivos antes de publicar.
+## 📋 Descripción del Proyecto
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**MISIONARY** es una agencia de marketing digital líder en Posadas, Misiones, Argentina, especializada en transformar marcas a través de estrategias digitales innovadoras. Fundada en 2020, nos dedicamos a hacer realidad la visión digital de nuestros clientes.
 
-## Getting Started
+### 🎯 Nuestra Misión
+Proporcionar soluciones digitales integrales que impulsen el crecimiento de las empresas en la era digital, combinando creatividad, tecnología y estrategia.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tecnologías y Paquetes
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend
+- **Next.js 14** - Framework React con App Router
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Framework de CSS utilitario
+- **Framer Motion** - Animaciones fluidas
+- **Lucide React** - Iconos modernos
+- **Heroicons** - Iconos complementarios
+- **React Hook Form** - Gestión de formularios
+- **Zod** - Validación de esquemas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### UI/UX Avanzada
+- **Headless UI** - Componentes accesibles
+- **Splide.js** - Carruseles y sliders optimizados
+- **GSAP** - Animaciones de alto rendimiento
+- **Lottie React** - Animaciones vectoriales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Desarrollo y Build
+- **ESLint** - Linting de código
+- **PostCSS** - Procesamiento de CSS
+- **Autoprefixer** - Prefijos CSS automáticos
+- **SWR** - Fetching de datos optimizado
 
-## Learn More
+### Performance y SEO
+- **Schema.org** - Datos estructurados completos
+- **OpenGraph** - Metadatos sociales optimizados
+- **Sitemap XML** - Indexación avanzada
+- **Core Web Vitals** - Métricas de rendimiento en tiempo real
+- **Optimización de imágenes** - Formatos AVIF y WebP
 
-To learn more about Next.js, take a look at the following resources:
+### Analytics y Tracking
+- **Google Analytics 4** - Análisis de tráfico y comportamiento
+- **Facebook Pixel** - Tracking de conversiones y remarketing
+- **LinkedIn Insight Tag** - Análisis B2B y campañas profesionales
+- **TikTok Pixel** - Tracking para audiencias jóvenes
+- **Estrategia de carga optimizada** - Scripts no críticos diferidos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Herramientas de Marketing
+- **WhatsApp Business API** - Integración directa con especialistas
+- **Sistema de filtrado de servicios** - Direccionamiento inteligente
+- **Tracking de eventos personalizados** - Medición de conversiones
+- **Optimización de conversión** - A/B testing y métricas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
