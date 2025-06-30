@@ -1,0 +1,158 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://misionary.com/#business",
+      "name": "Misionary - Agencia de Marketing Digital",
+      "description": "Agencia de marketing digital especializada en diseño web, publicidad digital, redes sociales y producción audiovisual en Posadas, Misiones, Argentina.",
+      "url": "https://misionary.com",
+      "logo": "https://misionary.com/msnr.svg",
+      "image": [
+        "https://misionary.com/og-image.png"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Posadas",
+        "addressRegion": "Misiones",
+        "addressCountry": "AR",
+        "postalCode": "3300"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-27.3887448",
+        "longitude": "-55.8911429"
+      },
+      "telephone": "+54 376 412-3717",
+      "email": "info@misionary.com",
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Posadas, Misiones, Argentina"
+        },
+        {
+          "@type": "Place", 
+          "name": "Misiones, Argentina"
+        },
+        {
+          "@type": "Place",
+          "name": "Argentina"
+        }
+      ],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "-27.3887448",
+          "longitude": "-55.8911429"
+        },
+        "geoRadius": "500"
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "25"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://misionary.com/#organization",
+      "name": "Misionary",
+      "alternateName": "Agencia Misionary",
+      "url": "https://misionary.com",
+      "logo": "https://misionary.com/msnr.svg",
+      "description": "Agencia de marketing digital líder en Posadas, Misiones, especializada en transformar marcas a través de estrategias digitales innovadoras.",
+      "foundingDate": "2020",
+      "knowsAbout": [
+        "Marketing Digital",
+        "Diseño Web",
+        "Publicidad Digital",
+        "Redes Sociales",
+        "Producción Audiovisual",
+        "SEO",
+        "SEM",
+        "Branding"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/misionary_agency",
+        "https://www.google.com/maps/place/Agencia+de+Marketing+%7C+MISIONARY/@-27.38874,-55.8937178,17z"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "name": "Servicios de Marketing Digital Misionary",
+      "provider": {
+        "@id": "https://misionary.com/#business"
+      },
+      "serviceType": "Marketing Digital",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Posadas, Misiones, Argentina"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Marketing Digital",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Diseño y Desarrollo Web",
+              "description": "Sitios web profesionales, responsivos y optimizados para conversión"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Marketing Digital",
+              "description": "Estrategias de marketing digital para aumentar ventas y visibilidad online"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Diseño Gráfico e Identidad Visual",
+              "description": "Branding, diseño de logos e identidad corporativa profesional"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Producción Audiovisual", 
+              "description": "Videos promocionales, fotografía comercial y contenido audiovisual"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Campañas Publicitarias",
+              "description": "Campañas publicitarias en Google Ads, Facebook e Instagram"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://misionary.com/#website",
+      "url": "https://misionary.com",
+      "name": "Misionary - Agencia de Marketing Digital",
+      "description": "Sitio web oficial de Misionary, agencia de marketing digital en Posadas, Misiones.",
+      "publisher": {
+        "@id": "https://misionary.com/#organization"
+      },
+      "inLanguage": "es-AR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://misionary.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}

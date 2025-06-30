@@ -13,16 +13,27 @@ export default function Home() {
       <SkipLink />
       <Header />
       <main id="main-content" className="flex flex-col min-h-screen bg-[#262626] text-[#F2F2F2] transition-colors" tabIndex={-1}>
+        {/* Hero Section - Agencia de Marketing Digital en Posadas */}
         <React.Suspense fallback={<Hero3Skeleton />}>
           <Hero3 />
         </React.Suspense>      
 
-        <div id="servicios">
+        {/* Servicios de Marketing Digital */}
+        <section id="servicios" aria-labelledby="servicios-heading">
+          <h2 id="servicios-heading" className="sr-only">
+            Servicios de Marketing Digital en Posadas, Misiones
+          </h2>
           <ServiceSlider />
-        </div>        
-        <div id="como-trabajamos">
+        </section>        
+        
+        {/* Proceso de Trabajo */}
+        <section id="como-trabajamos" aria-labelledby="proceso-heading">
+          <h2 id="proceso-heading" className="sr-only">
+            Cómo trabajamos en Misionary - Proceso de Marketing Digital
+          </h2>
           <Steps />
-        </div>        
+        </section>        
+        
         <Footer />
       </main>
     </>

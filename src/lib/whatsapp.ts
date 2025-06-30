@@ -1,5 +1,7 @@
 "use client";
 
+import { trackWhatsAppOpen } from "./tracking";
+
 export type Service = "web" | "mkt" | "design" | "audiovisual" | "campaigns" | "websites" | "other";
 
 // Las etiquetas para cada servicio
@@ -32,6 +34,9 @@ export function goToWhatsApp(service: Service, specialistIndex: number = 0) {
   const text = encodeURIComponent(
     `Hola, vengo desde misionary.com y me interesa ${serviceLabels[service]} con ${specialist.name}.`
   );
+  
+  // Tracking del evento antes de abrir WhatsApp
+  trackWhatsAppOpen(service, specialist.name);
   
   // Abrimos WhatsApp en una nueva pestaña
   window.open(`https://wa.me/${specialist.whatsappNumber}?text=${text}`, "_blank");
