@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "@/components/Header";
-import Hero3, { Hero3Skeleton } from "@/components/Hero3";
+import HeroSelector, { HeroSkeleton } from "@/components/HeroSelector";
 import Steps from "@/components/Steps";
 // import StatusTable from "@/components/StatusTable";
 import Footer from "@/components/Footer";
@@ -14,8 +14,8 @@ export default function Home() {
       <Header />
       <main id="main-content" className="flex flex-col min-h-screen bg-[#262626] text-[#F2F2F2] transition-colors" tabIndex={-1}>
         {/* Hero Section - Agencia de Marketing Digital en Posadas */}
-        <React.Suspense fallback={<Hero3Skeleton />}>
-          <Hero3 />
+        <React.Suspense fallback={<HeroSkeleton />}>
+          <HeroSelector />
         </React.Suspense>      
 
         {/* Servicios de Marketing Digital */}
