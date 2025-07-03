@@ -93,7 +93,7 @@ export default function Footer() {
             Contáctanos hoy para potenciar tu presencia digital con estrategias disruptivas que marcan la diferencia.
           </p>
           <motion.a 
-            href="mailto:hola@misionary.agency"
+            href="mailto:marketing@misionary.com"
             className="group flex items-center gap-2 px-6 py-3 rounded-full bg-[#E9FC87] text-[#262626] 
                     font-semibold transition-all hover:shadow-lg hover:shadow-[#E9FC87]/20
                     focus:ring-2 focus:ring-[#E9FC87]/50 focus:outline-none"
@@ -132,7 +132,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4 items-center justify-center md:justify-start pt-2" role="navigation" aria-label="Redes sociales">
               <motion.a 
-                href="mailto:hola@misionary.agency" 
+                href="mailto:marketing@misionary.com" 
                 aria-label="Enviar email a Misionary"
                 className="p-2.5 rounded-full bg-[#2A2A2A] border border-[#E9FC87]/20 text-[#F2F2F2] 
                         hover:bg-[#E9FC87]/10 transition-all duration-300
@@ -227,7 +227,7 @@ export default function Footer() {
             <ul className="space-y-3.5 flex flex-col items-center md:items-start" role="list">
               <li role="listitem">
                 <a 
-                  href="mailto:hola@misionary.agency"
+                  href="mailto:marketing@misionary.com"
                   className="text-[#F2F2F2]/80 hover:text-[#E9FC87] transition-all duration-300 text-sm flex items-center group
                            focus:outline-none focus:ring-2 focus:ring-[#E9FC87]/40 focus:rounded-md focus:px-2 focus:py-1"
                   aria-label="Enviar email a marketing@misionary.com"
